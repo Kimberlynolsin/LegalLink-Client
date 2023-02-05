@@ -1,0 +1,19 @@
+@include mobile {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-family: "Poppins";
+    font-size: 1.6rem;
+    padding: 0 1.6rem;
+    background: #8CAA87;
+    color: white;
+  }
+}

@@ -1,0 +1,11 @@
+@import "./partials/typography";
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/global";
+
+
+//components
+// @import '../components/'
+
+//Pages
+@import '../pages/Homepage/Homepage.scss';
