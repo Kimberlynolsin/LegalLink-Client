@@ -1,5 +1,4 @@
 .nav {
-  background-color:$secondary;
   color: white;
   padding: 0;
 
@@ -26,6 +25,9 @@
 
       &--history {
         flex-grow: 1;
+      }
+      &__icons{
+        width: 3rem;
       }
     }
   }

@@ -23,18 +23,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2rem;
 
     &-container {
       width: 50%;
     }
   }
-
-  &__disclaimer{
-    display: none;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-    &__info {
-      font-size: 1rem;
-      margin-top: 3rem;
-    }
+  &__help {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 1;
+  }
 
+  &__disclaimer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $secondary;
+    padding: 1rem;
+    border-radius:5px  ;
+  }
+  &__info {
+    font-size: 1rem;
+    // margin-top: 3rem;
+  }
+
+  &__close{
+    width: 3rem;
+    height: 3rem;
+  }
 }
