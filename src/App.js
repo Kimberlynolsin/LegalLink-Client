@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Header from "./components/Header/Header";
 import "./styles/styles.scss";
+import Navigation from "./components/Navigation/Navigation";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Navigation/>
       </Router>
     </>
   );

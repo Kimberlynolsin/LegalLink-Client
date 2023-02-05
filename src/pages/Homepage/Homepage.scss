@@ -1,12 +1,40 @@
- .status {
+.status {
+  margin-bottom: 4rem;
 
-    &__box {
-      background-color: #6f8565;
-      border-radius: 5px;
-      padding: 2rem;
-      display: flex;
+  &__title {
+    display: block;
+  }
+  &__box {
+    background-color: #6f8565;
+    border-radius: 5px;
+    padding: 2rem;
+    display: flex;
+    margin: 4rem 0;
+    &__statement {
+      margin: 0;
     }
-
-  
   }
 
+  &__subtitle {
+    font-size: 1.6rem;
+  }
+
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-container {
+      width: 50%;
+    }
+  }
+
+  &__disclaimer{
+    display: none;
+  }
+    &__info {
+      font-size: 1rem;
+      margin-top: 3rem;
+    }
+
+}

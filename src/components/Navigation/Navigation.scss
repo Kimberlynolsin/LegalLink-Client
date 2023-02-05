@@ -1,0 +1,32 @@
+.nav {
+  background-color:$secondary;
+  color: white;
+  padding: 0;
+
+
+  &__container{
+    width: 100%;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.3rem;
+    &__item {
+      list-style-type: none;
+      text-align: center;
+      &--home,
+      &--ticket {
+        border-right: 1px solid white;
+        width: 33%;
+      }
+
+      &--history {
+        flex-grow: 1;
+      }
+    }
+  }
+}
