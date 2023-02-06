@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
-import Header from "./components/Header/Header";
+import PageHeader from "./components/PageHeader/PageHeader";
 import Navigation from "./components/Navigation/Navigation";
 import StatusUpdatePage from "./pages/StatusUpdate/StatusUpdate";
 import TicketPage from "./pages/Ticket/Ticket";
@@ -32,14 +32,15 @@ function App() {
       percentage: 90,
     },
   ];
+
+  //have navbar render footer conditionally so that if they pass the login page, the footer will show
   return (
     <>
       <Router>
-        {/* <Header /> */}
+        <PageHeader />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-
 
           <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
           <Route path="/status" element={< StatusUpdatePage/>} />

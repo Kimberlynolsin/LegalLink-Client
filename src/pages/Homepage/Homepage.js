@@ -27,7 +27,7 @@ const Homepage = ({ cardDetails }) => {
           support, and accessible history.
         </p>
       </div>
-      <h3 className="homepage__subtitle">Your current progress</h3>
+      <h3 className="homepage__subtitle">Your application progress</h3>
       <div className="homepage__content">{cards}</div>
     </section>
   );
