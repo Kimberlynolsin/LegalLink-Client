@@ -1,4 +1,4 @@
-.status {
+.homepage {
   margin-bottom: 4rem;
 
   &__title {
@@ -7,6 +7,7 @@
   &__box {
     background-color: #6f8565;
     border-radius: 5px;
+    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
     padding: 2rem;
     display: flex;
     margin: 4rem 0;
@@ -15,46 +16,31 @@
     }
   }
 
-  &__subtitle {
-    font-size: 1.6rem;
+  &__subtitle{
+    font-weight: 400;
+  }
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
-  &__progress {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    &-container {
-      width: 50%;
+  &__progress-work {
+    color: #6f8565;
+    background-color: white;
+    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
+    border-radius: 5px;
+    width: 45%;
+    padding:2rem;
+    margin: 1rem 0;
+    &__title {
+      margin: 0;
+      font-size: 1.3rem;
     }
   }
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__help {
-    width: 3rem;
-    height: 3rem;
-    flex-shrink: 1;
-  }
-
-  &__disclaimer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $secondary;
-    padding: 1rem;
-    border-radius:5px  ;
-  }
-  &__info {
-    font-size: 1rem;
-    // margin-top: 3rem;
-  }
-
-  &__close{
-    width: 3rem;
-    height: 3rem;
-  }
 }
+
+.react-sweet-progress-symbol{
+  font-size: 1.3rem;
+}
+
