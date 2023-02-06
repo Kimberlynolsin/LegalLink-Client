@@ -13,6 +13,7 @@ const Homepage = ({ cardDetails }) => {
           }}
           percent={element.percentage}
         />
+
       </div>
     );
   });
@@ -23,7 +24,7 @@ const Homepage = ({ cardDetails }) => {
       <div className="homepage__box">
         <p className="homepage__statement">
           Easing your immigration journey with transparent updates, prompt
-          support, and accessible ticket history.
+          support, and accessible history.
         </p>
       </div>
       <h3 className="homepage__subtitle">Your current progress</h3>

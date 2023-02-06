@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import { Progress } from "react-sweet-progress";
+import "react-sweet-progress/lib/style.css";
 import help from "../../assets/icons/help.png";
 const StatusUpdate = () => {
   const [openModal, setopenModal] = useState(false);
@@ -24,15 +24,15 @@ const StatusUpdate = () => {
       </div>
       <div className="status__progress">
         <div className="status__progress-container">
-          <CircularProgressbar
-            value={percentage}
-            text={`${percentage}%`}
-            styles={buildStyles({
-              textColor: "white",
-              pathColor: "white",
-              trailColor: "gray",
-              textSize: "16px",
-            })}
+          <Progress
+            type="circle"
+            percent={30}
+            theme={{
+              active: {
+                color: "#6F8565",
+                trailColor: "#efefef",
+              },
+            }}
           />
         </div>
       </div>

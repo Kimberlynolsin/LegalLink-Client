@@ -11,7 +11,7 @@
     margin-bottom: 2rem;
 
     &-container {
-      width: 50%;
+     padding: 2rem;    
     }
   }
   &__wrapper {
@@ -27,12 +27,12 @@
 
   &__disclaimer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $secondary;
     box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
-    padding: 1rem;
     border-radius:5px  ;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    background-color: $secondary;
+   
   }
   &__info {
     font-size: 1.3rem;
@@ -43,3 +43,8 @@
     height: 3rem;
   }
 }
+
+.react-sweet-progress-symbol-absolute div{
+  color: white;
+}
+
