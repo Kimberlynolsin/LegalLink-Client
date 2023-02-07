@@ -1,16 +1,34 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
 
-const LoginPage = () => {
-  //check if user has signed up
-  //if yes, redirect to login, if no tell user to sign up
-  //if username and passed === the record we have then redirect to homepage
-  const [isSignedUp, setIsSignedUp] = useState(false);
+const LoginPage = ({ login, URL }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState();
+  const [isLoginError, setIsLoginError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    axios.post(`${URL}${login}`, {
+      username: e.target.username.value,
+      password: e.target.password.value,
+    })
+    .then(({data})=>{
+      console.log(data.token)
+      sessionStorage.setItem('token', data.token)
+      setIsLoggedIn(true)
+      setIsLoginError(false)
+      setErrorMessage('')
+
+    })
+    .catch((err)=>{
+      console.log(err)
+      setIsLoginError(err)
+    })
     navigate("/");
   };
 
@@ -21,18 +39,23 @@ const LoginPage = () => {
         Unknown
       </h2>
 
-      <form className="login__form">
+      <form className="login__form"  onSubmit={handleLogin}>
         <label>
           username:
-          <input type="text"></input>
+          <input type="text" name="username"></input>
         </label>
         <label>
           password:
-          <input type="text"></input>
+          <input type="text" name="password"></input>
         </label>
 
         <div className="login__btn-container">
-          <button className="login__btn-container__button" onClick={handleLogin}>LOGIN</button>
+          <button
+            className="login__btn-container__button"
+           
+          >
+            LOGIN
+          </button>
         </div>
       </form>
       <p>

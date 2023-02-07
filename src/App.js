@@ -10,6 +10,10 @@ import "./styles/styles.scss";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 
 function App() {
+  const URL = "http://localhost:8000";
+  const login = "/login";
+  const signup = "/signup";
+  
   const cardDetails = [
     {
       id: 1,
@@ -33,22 +37,24 @@ function App() {
     },
   ];
 
-  //have navbar render footer conditionally so that if they pass the login page, the footer will show
+  console.log(URL)
   return (
     <>
       <Router>
         <PageHeader />
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage url={URL} login={login} />}
+          />
+          <Route path="/signup" element={<SignUpPage url={URL} path={signup}/>} />
 
           <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
-          <Route path="/status" element={< StatusUpdatePage/>} />
-          <Route path="/status" element={< TicketPage/>} />
-          <Route path="/status" element={< HistoryPage/>} />
-
+          <Route path="/status" element={<StatusUpdatePage />} />
+          <Route path="/ticket" element={<TicketPage />} />
+          <Route path="/history" element={<HistoryPage />} />
         </Routes>
-        <Navigation/>
+        <Navigation />
       </Router>
     </>
   );

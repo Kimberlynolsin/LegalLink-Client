@@ -1,7 +1,7 @@
 function PageHeader() {
   return (
     <>
-      <header classname="header">
+      <header className="header">
         <h1 className="header__title">LegalLink</h1>
       </header>
     </>
