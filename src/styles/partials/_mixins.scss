@@ -1,0 +1,6 @@
+@mixin mobile {
+    @media (min-width:$mobile-min) and (max-width:$mobile-max) {
+        @content;
+    }
+}
+

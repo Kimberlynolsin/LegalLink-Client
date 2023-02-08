@@ -1,0 +1,47 @@
+.homepage {
+  margin-bottom: 4rem;
+  padding:$mobile-pad;
+
+  &__title {
+    display: block;
+  }
+  &__box {
+    background-color: #6f8565;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
+    padding: 2rem;
+    display: flex;
+    margin: 4rem 0;
+    &__statement {
+      margin: 0;
+    }
+  }
+
+  &__subtitle{
+    font-weight: 400;
+  }
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__progress-work {
+    color: #6f8565;
+    background-color: white;
+    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
+    border-radius: 5px;
+    width: 45%;
+    padding:2rem;
+    margin: 1rem 0;
+    &__title {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.react-sweet-progress-symbol{
+  font-size: 1.3rem;
+}
+
