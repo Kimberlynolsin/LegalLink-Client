@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LoginPage = ({ login, URL }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoginError, setIsLoginError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  // console.log('login', URL, login)
-  const navigate = useNavigate();
+const LoginPage = ({ login, URL, isLoggedIn,setIsLoggedIn }) => {
+const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -29,14 +23,13 @@ const LoginPage = ({ login, URL }) => {
         console.log(data);
         sessionStorage.setItem("token", data.token);
         setIsLoggedIn(true);
-        setIsLoginError(false);
-        setErrorMessage("");
+        // setIsLoginError(false);
         
         navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
-        setIsLoginError(err);
+        // setIsLoginError(err);
       });
   };
 
@@ -54,7 +47,7 @@ const LoginPage = ({ login, URL }) => {
         </label>
         <label>
           password:
-          <input type="text" name="password"></input>
+          <input type="password" name="password"></input>
         </label>
 
         <div className="login__btn-container">

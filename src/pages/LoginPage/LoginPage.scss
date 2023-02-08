@@ -19,8 +19,19 @@ padding: $mobile-pad;
         border: none;
         flex-grow: 1;
         background-color: $primary;
-
+        color: white;
+        font-size:1.6rem ;
+        font-family: 'Poppins';
+    
+        &:focus{
+            outline: none;
+        }
     }
+
+    [type='password']{
+        @extend [type='text']
+    }
+
 
     &__btn-container{
         display: flex;

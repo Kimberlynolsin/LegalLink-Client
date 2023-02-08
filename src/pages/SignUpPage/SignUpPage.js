@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const SignUpPage = ({ URL, signup }) => {
-  const [isSignedUp, setIsSignedUp] = useState(false);
+const SignUpPage = ({ URL, signup,isSignedUp,setIsSignedUp }) => {
+  // const [isSignedUp, setIsSignedUp] = useState(false);
 
   const navigate = useNavigate();
 

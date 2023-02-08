@@ -4,3 +4,9 @@
     }
 }
 
+@mixin inputStyle{
+    border: .1rem solid $secondary;
+    border-radius: 5px;
+    padding: 1rem ;
+    font-family: 'Poppins';
+}
