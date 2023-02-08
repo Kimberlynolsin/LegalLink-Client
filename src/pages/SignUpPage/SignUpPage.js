@@ -3,21 +3,28 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUpPage = ({ URL, signup }) => {
-
-  console.log(URL)
-  console.log(signup)
   const [isSignedUp, setIsSignedUp] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
+    let username = e.target.username.value;
+    let name = e.target.name.value;
+    let password = e.target.password.value;
+
+    if (!username || !name || !password) {
+      alert("Please fill in all fields");
+      return
+    }
+
     axios
       .post(`${URL}${signup}`, {
-        username: e.target.username.value,
-        name: e.target.name.value,
-        password: e.target.password.value,
+        username: username,
+        name: name,
+        password: password,
       })
+
       .then(() => {
         setIsSignedUp(true);
         if (isSignedUp) {
@@ -27,6 +34,10 @@ const SignUpPage = ({ URL, signup }) => {
       .catch((err) => {
         console.log(err);
       });
+
+    username = "";
+    name = "";
+    password = "";
   };
   return (
     <section className="login">
@@ -50,7 +61,7 @@ const SignUpPage = ({ URL, signup }) => {
         </label>
 
         <div className="login__btn-container">
-          <button className="login__btn-container__button">LOGIN</button>
+          <button className="login__btn-container__button">SIGN UP</button>
         </div>
       </form>
       <p>

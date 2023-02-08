@@ -1,35 +1,43 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 const LoginPage = ({ login, URL }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-
+  // console.log('login', URL, login)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
+    let username = e.target.username.value;
+    let password = e.target.password.value;
 
-    axios.post(`${URL}${login}`, {
-      username: e.target.username.value,
-      password: e.target.password.value,
-    })
-    .then(({data})=>{
-      console.log(data.token)
-      sessionStorage.setItem('token', data.token)
-      setIsLoggedIn(true)
-      setIsLoginError(false)
-      setErrorMessage('')
+    if (!username || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
 
-    })
-    .catch((err)=>{
-      console.log(err)
-      setIsLoginError(err)
-    })
-    navigate("/");
+    axios
+      .post(`${URL}${login}`, {
+        username,
+        password,
+      })
+      .then(({ data }) => {
+        console.log(data);
+        sessionStorage.setItem("token", data.token);
+        setIsLoggedIn(true);
+        setIsLoginError(false);
+        setErrorMessage("");
+        
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setIsLoginError(err);
+      });
   };
 
   return (
@@ -39,7 +47,7 @@ const LoginPage = ({ login, URL }) => {
         Unknown
       </h2>
 
-      <form className="login__form"  onSubmit={handleLogin}>
+      <form className="login__form" onSubmit={handleLogin}>
         <label>
           username:
           <input type="text" name="username"></input>
@@ -50,12 +58,7 @@ const LoginPage = ({ login, URL }) => {
         </label>
 
         <div className="login__btn-container">
-          <button
-            className="login__btn-container__button"
-           
-          >
-            LOGIN
-          </button>
+          <button className="login__btn-container__button">LOGIN</button>
         </div>
       </form>
       <p>

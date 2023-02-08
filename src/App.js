@@ -37,17 +37,14 @@ function App() {
     },
   ];
 
-  console.log(URL)
+  console.log('app.js',URL)
   return (
     <>
       <Router>
         <PageHeader />
         <Routes>
-          <Route
-            path="/login"
-            element={<LoginPage url={URL} login={login} />}
-          />
-          <Route path="/signup" element={<SignUpPage url={URL} path={signup}/>} />
+          <Route path="/login" element={<LoginPage URL={URL} login={login} />}/>
+          <Route path="/signup" element={<SignUpPage URL={URL} signup={signup}/>} />
 
           <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
           <Route path="/status" element={<StatusUpdatePage />} />
