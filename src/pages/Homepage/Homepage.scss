@@ -1,6 +1,6 @@
 .homepage {
   margin-bottom: 4rem;
-  padding:$mobile-pad;
+  padding: $mobile-pad;
 
   &__title {
     display: block;
@@ -11,19 +11,19 @@
     box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
     padding: 2rem;
     display: flex;
-    margin: 4rem 0;
+    margin:  0;
     &__statement {
       margin: 0;
     }
   }
 
-  &__subtitle{
+  &__subtitle {
     font-weight: 400;
   }
-  &__content{
+  &__content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   &__progress-work {
@@ -31,17 +31,54 @@
     background-color: white;
     box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
     border-radius: 5px;
-    width: 45%;
-    padding:2rem;
+    width: 48%;
+    padding: 2rem;
     margin: 1rem 0;
     &__title {
       margin: 0;
       font-size: 1.3rem;
     }
   }
+
+  &__estimate {
+    color: #6f8565;
+    background-color: white;
+    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
+    border-radius: 5px;
+    padding: 2rem;
+    margin: 1rem 0;
+    &__box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+    }
+    &__title {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+    &__details {
+      margin: 1rem 0 0 0;
+      font-size: 1.3rem;
+      color: black;
+    }
+
+    &__info{
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &__img{
+      background-color: $secondary;
+      height: 2rem;
+      border-radius: 10px;
+    }
+    &__popup{
+      font-size: 1.3rem;
+    }
+  }
 }
 
-.react-sweet-progress-symbol{
+.react-sweet-progress-symbol {
   font-size: 1.3rem;
 }
-
