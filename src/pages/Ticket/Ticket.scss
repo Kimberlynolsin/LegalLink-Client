@@ -28,6 +28,7 @@
 
     &:focus {
       outline: none;
+      background-color: lightgray;
     }
   }
 
@@ -36,9 +37,9 @@
     resize: none;
     height: 20vh;
     &:focus {
-        outline: none;
-      }
-
+      outline: none;
+      background-color: lightgray;
+    }
   }
   &__btn {
     display: flex;
@@ -49,7 +50,7 @@
     width: 100%;
     background-color: $secondary;
     color: white;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     border: none;
     border-radius: 5px;
     padding: 1.5rem 1rem;

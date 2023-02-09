@@ -1,42 +1,48 @@
 import axios from "axios";
+import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const SignUpPage = ({ URL, signup,isSignedUp,setIsSignedUp }) => {
-  // const [isSignedUp, setIsSignedUp] = useState(false);
-
+const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
   const navigate = useNavigate();
+  const formRef = useRef();
+
+  const form = formRef.current;
 
   const handleSignup = (e) => {
     e.preventDefault();
-    let username = e.target.username.value;
-    let name = e.target.name.value;
-    let password = e.target.password.value;
+
+    const username = form.username.value;
+    const name = form.name.value;
+    const password = form.password.value;
 
     if (!username || !name || !password) {
       alert("Please fill in all fields");
-      return
+      return;
     }
 
+    
     axios
-      .post(`${URL}${signup}`, {
-        username: username,
-        name: name,
-        password: password,
-      })
+    .post(`${URL}${signup}`, {
+      name: name,
+      username: username,
+      password: password,
+    })
+    
+    .then(() => {
+      setIsSignedUp(true);
 
-      .then(() => {
-        setIsSignedUp(true);
-        if (isSignedUp) {
-          navigate("/login");
-        }
+      if (isSignedUp) {
+        alert('Sign up successful')
+        navigate("/login");
+      }
+
       })
       .catch((err) => {
         console.log(err);
       });
+      form.reset();
 
-    username = "";
-    name = "";
-    password = "";
+  
   };
   return (
     <section className="login">
@@ -45,7 +51,7 @@ const SignUpPage = ({ URL, signup,isSignedUp,setIsSignedUp }) => {
         Unknown
       </h2>
 
-      <form className="login__form" onSubmit={handleSignup}>
+      <form className="login__form" onSubmit={handleSignup} ref={formRef}>
         <label>
           name:
           <input type="text" name="name"></input>

@@ -1,4 +1,8 @@
-import { BrowserRouter as Router, Routes, Route ,redirect} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
 import PageHeader from "./components/PageHeader/PageHeader";
@@ -50,47 +54,13 @@ function App() {
     <>
       <Router>
         <PageHeader />
-
         <Routes>
-          {/* <Route
-            path="/signup"
-            element={
-              <SignUpPage
-                URL={URL}
-                signup={signup}
-                isSignedUp={isSignedUp}
-                setIsSignedUp={setIsSignedUp}
-              />
-            }
-          /> */}
-
-          <Route
-            exact
-            path="/signup"
-            render={() => {
-              return !isSignedUp ? (
-                <redirect to={signup} />
-              ) : (
-                <Homepage cardDetails={cardDetails} />
-              );
-            }}
-          />
-
-          <Route
-            path="/login"
-            element={
-              <LoginPage
-                URL={URL}
-                login={login}
-                isLoggedIn={isLoggedIn}
-                setIsLoggedIn={setIsLoggedIn}
-              />
-            }
-          />
-
+          <Route path="/signup"element={<SignUpPage URL={URL} signup={signup} isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>}/>
+          <Route path="/login" element={<LoginPage URL={URL}login={login}isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
+          
           <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
           <Route path="/status" element={<StatusUpdatePage />} />
-          <Route path="/ticket" element={<TicketPage />} />
+          <Route path="/ticket" element={<TicketPage URL={URL} />} />
           <Route path="/history" element={<HistoryPage />} />
         </Routes>
 

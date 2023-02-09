@@ -1,13 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import axios from "axios";
 
-const LoginPage = ({ login, URL, isLoggedIn,setIsLoggedIn }) => {
-const navigate = useNavigate()
+const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
+  const navigate = useNavigate();
+  const formRef = useRef();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    let username = e.target.username.value;
-    let password = e.target.password.value;
+
+    const form = formRef.current;
+
+    const username = form.username.value;
+    const password = form.password.value;
 
     if (!username || !password) {
       alert("Please fill in all fields");
@@ -24,7 +29,7 @@ const navigate = useNavigate()
         sessionStorage.setItem("token", data.token);
         setIsLoggedIn(true);
         // setIsLoginError(false);
-        
+
         navigate("/");
       })
       .catch((err) => {
@@ -40,7 +45,7 @@ const navigate = useNavigate()
         Unknown
       </h2>
 
-      <form className="login__form" onSubmit={handleLogin}>
+      <form className="login__form" onSubmit={handleLogin} ref={formRef}>
         <label>
           username:
           <input type="text" name="username"></input>
