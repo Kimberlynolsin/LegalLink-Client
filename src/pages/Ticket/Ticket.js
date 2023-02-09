@@ -17,12 +17,17 @@ const TicketPage = ({ URL }) => {
       description: description,
     };
 
-    axios.post(`${URL}/ticket`, newTicket).then((response) => {
-      const { data } = response;
-      console.log(data);
-    });
+    axios
+      .post(`${URL}/ticket`, newTicket)
+      .then((response) => {
+        const { data } = response;
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
 
-    form.reset()
+    form.reset();
   };
 
   return (

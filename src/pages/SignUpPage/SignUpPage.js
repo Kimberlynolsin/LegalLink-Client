@@ -20,7 +20,7 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
       return;
     }
 
-    
+
     axios
     .post(`${URL}${signup}`, {
       name: name,
@@ -62,7 +62,7 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
         </label>
         <label>
           password:
-          <input type="text" name="password"></input>
+          <input type="password" name="password"></input>
         </label>
 
         <div className="login__btn-container">
