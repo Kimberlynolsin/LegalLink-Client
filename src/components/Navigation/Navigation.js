@@ -1,52 +1,30 @@
 import home from "../../assets/icons/home.png";
 import ticket from "../../assets/icons/ticket.png";
 import history from "../../assets/icons/history.png";
-import update from "../../assets/icons/update.png";
+import update from "../../assets/icons/status.png";
 import { Link } from "react-router-dom";
 
 function Navigation() {
+  const icons = [
+    { id: 1, icon: home, alt: "homepage", to: "/" },
+    { id: 1, icon: ticket, alt: "ticket page", to: "/ticket" },
+    { id: 1, icon: history, alt: "update page", to: "/status" },
+    { id: 1, icon: update, alt: "history page", to: "/history" },
+  ];
+
+  const navbar = icons.map((e) => {
+    return (
+      <Link to={e.to} key={e.id}>
+        <div className="nav-container">
+          <img src={e.icon} alt={e.alt} className="nav-container__icons"></img>
+        </div>
+      </Link>
+    );
+  });
+
   return (
     <section className="nav">
-      <div className="nav__container">
-        <ul className="nav__list">
-          <li className="nav__list__item nav__list__item--home">
-            <Link to="/">
-              <img
-                src={home}
-                alt="home nav"
-                className="nav__list__item__icons"
-              ></img>
-            </Link>
-          </li>{" "}
-          <li className="nav__list__item nav__list__item--status">
-            <Link to="/status">
-              <img
-                src={update}
-                alt="ticket nav"
-                className="nav__list__item__icons"
-              ></img>
-            </Link>
-          </li>
-          <li className="nav__list__item nav__list__item--ticket">
-            <Link to="ticket">
-              <img
-                src={ticket}
-                alt="ticket nav"
-                className="nav__list__item__icons"
-              ></img>
-            </Link>
-          </li>
-          <li className="nav__list__item nav__list__item--history">
-            <Link to="/history">
-              <img
-                src={history}
-                alt="history nav"
-                className="nav__list__item__icons"
-              ></img>
-            </Link>
-          </li>
-        </ul>
-      </div>
+      {navbar}
     </section>
   );
 }
