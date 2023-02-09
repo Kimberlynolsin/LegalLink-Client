@@ -1,43 +1,48 @@
 import axios from "axios";
-import { useState } from "react";
+import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const SignUpPage = ({ URL, signup }) => {
-  const [isSignedUp, setIsSignedUp] = useState(false);
-
+const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
   const navigate = useNavigate();
+  const formRef = useRef();
+
+  const form = formRef.current;
 
   const handleSignup = (e) => {
     e.preventDefault();
-    let username = e.target.username.value;
-    let name = e.target.name.value;
-    let password = e.target.password.value;
+
+    const username = form.username.value;
+    const name = form.name.value;
+    const password = form.password.value;
 
     if (!username || !name || !password) {
       alert("Please fill in all fields");
-      return
+      return;
     }
 
-    axios
-      .post(`${URL}${signup}`, {
-        username: username,
-        name: name,
-        password: password,
-      })
 
-      .then(() => {
-        setIsSignedUp(true);
-        if (isSignedUp) {
-          navigate("/login");
-        }
+    axios
+    .post(`${URL}${signup}`, {
+      name: name,
+      username: username,
+      password: password,
+    })
+    
+    .then(() => {
+      setIsSignedUp(true);
+
+      if (isSignedUp) {
+        alert('Sign up successful')
+        navigate("/login");
+      }
+
       })
       .catch((err) => {
         console.log(err);
       });
+      form.reset();
 
-    username = "";
-    name = "";
-    password = "";
+  
   };
   return (
     <section className="login">
@@ -46,7 +51,7 @@ const SignUpPage = ({ URL, signup }) => {
         Unknown
       </h2>
 
-      <form className="login__form" onSubmit={handleSignup}>
+      <form className="login__form" onSubmit={handleSignup} ref={formRef}>
         <label>
           name:
           <input type="text" name="name"></input>
@@ -57,7 +62,7 @@ const SignUpPage = ({ URL, signup }) => {
         </label>
         <label>
           password:
-          <input type="text" name="password"></input>
+          <input type="password" name="password"></input>
         </label>
 
         <div className="login__btn-container">

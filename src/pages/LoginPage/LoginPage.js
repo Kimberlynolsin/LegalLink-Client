@@ -1,19 +1,18 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import axios from "axios";
 
-const LoginPage = ({ login, URL }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoginError, setIsLoginError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  // console.log('login', URL, login)
+const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
+  const formRef = useRef();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    let username = e.target.username.value;
-    let password = e.target.password.value;
+
+    const form = formRef.current;
+
+    const username = form.username.value;
+    const password = form.password.value;
 
     if (!username || !password) {
       alert("Please fill in all fields");
@@ -29,14 +28,13 @@ const LoginPage = ({ login, URL }) => {
         console.log(data);
         sessionStorage.setItem("token", data.token);
         setIsLoggedIn(true);
-        setIsLoginError(false);
-        setErrorMessage("");
-        
+        // setIsLoginError(false);
+
         navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
-        setIsLoginError(err);
+        // setIsLoginError(err);
       });
   };
 
@@ -47,14 +45,14 @@ const LoginPage = ({ login, URL }) => {
         Unknown
       </h2>
 
-      <form className="login__form" onSubmit={handleLogin}>
+      <form className="login__form" onSubmit={handleLogin} ref={formRef}>
         <label>
           username:
           <input type="text" name="username"></input>
         </label>
         <label>
           password:
-          <input type="text" name="password"></input>
+          <input type="password" name="password"></input>
         </label>
 
         <div className="login__btn-container">
