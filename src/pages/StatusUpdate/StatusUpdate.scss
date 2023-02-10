@@ -21,16 +21,16 @@
     margin: 0;
   }
 
-  &__form{
+  &__form {
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
   }
 
-  &__btn{
+  &__btn {
     background-color: white;
     border: none;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     border-radius: 5px;
     color: $secondary;
     padding: 0 2rem;
@@ -45,18 +45,20 @@
     @include cards;
     padding: 1rem;
     margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
     &:hover {
-      background-color: $secondary;
-      color: white;
+      border: 1px solid $secondary;
     }
     p {
       margin: 0;
       font-size: 1.3rem;
     }
+  }
+
+  &__title-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__progress {
@@ -97,12 +99,14 @@
   &__card {
     @include cards;
     margin: 0;
+    margin-top: 1rem;
+    padding: 1rem;
     &__title,
     &__details {
       margin: 0;
     }
     &__title {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 1rem;
     }

@@ -3,16 +3,16 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useState, useEffect } from "react";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
 import PageHeader from "./components/PageHeader/PageHeader";
-import Navigation from "./components/Navigation/Navigation";
 import StatusUpdatePage from "./pages/StatusUpdate/StatusUpdate";
 import TicketPage from "./pages/Ticket/Ticket";
-import HistoryPage from "./pages/History/History";
-import "./styles/styles.scss";
+import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
-import { useState, useEffect } from "react";
+import Layout from "./Layout/Layout";
+import "./styles/styles.scss";
 
 function App() {
   const URL = "http://localhost:8000";
@@ -20,7 +20,7 @@ function App() {
   const signup = "/signup";
 
   const [isSignedUp, setIsSignedUp] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const cardDetails = [
     {
@@ -55,19 +55,22 @@ function App() {
       <Router>
         <PageHeader />
         <Routes>
+          <Route element={<Layout isLoggedIn={isLoggedIn} /> }>
+            <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
+            <Route path="/status" element={<StatusUpdatePage cardDetails={cardDetails} />} />
+            <Route path="/ticket" element={<TicketPage URL={URL} />} />
+            <Route path="/history" element={<HistoryPage URL={URL}/>} />
+          </Route>
+
           <Route path="/signup"element={<SignUpPage URL={URL} signup={signup} isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>}/>
           <Route path="/login" element={<LoginPage URL={URL}login={login}isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
-          
-          <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
-          <Route path="/status" element={<StatusUpdatePage cardDetails={cardDetails} />} />
-          <Route path="/ticket" element={<TicketPage URL={URL} />} />
-          <Route path="/history" element={<HistoryPage />} />
         </Routes>
-
-        {isLoggedIn && <Navigation />}
+        
       </Router>
     </>
   );
 }
+
+
 
 export default App;

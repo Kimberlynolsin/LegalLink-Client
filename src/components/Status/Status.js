@@ -10,6 +10,10 @@ const Status = () => {
     setopenModal(!openModal);
   };
 
+  //if financial aid is selected, render its content 
+
+  
+
   return (
     <>
       <div className="status__wrapper">
