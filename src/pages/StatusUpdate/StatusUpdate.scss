@@ -1,7 +1,62 @@
-.status{
-padding: $mobile-pad;
-&__subtitle {
+.status {
+  padding: $mobile-pad;
+
+  select {
+    background-color: $primary;
+    border: none;
+    color: white;
+    font-family: "Poppins";
+    font-size: 1.8rem;
+    margin: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &__subtitle {
     font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    margin: 0;
+  }
+
+  &__form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  &__btn{
+    background-color: white;
+    border: none;
+    font-family: 'Poppins';
+    border-radius: 5px;
+    color: $secondary;
+    padding: 0 2rem;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__application {
+    @include cards;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      background-color: $secondary;
+      color: white;
+    }
+    p {
+      margin: 0;
+      font-size: 1.3rem;
+    }
   }
 
   &__progress {
@@ -11,7 +66,7 @@ padding: $mobile-pad;
     margin-bottom: 2rem;
 
     &-container {
-     padding: 2rem;    
+      padding: 2rem;
     }
   }
   &__wrapper {
@@ -27,24 +82,39 @@ padding: $mobile-pad;
 
   &__disclaimer {
     display: flex;
-    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
-    border-radius:5px  ;
-    padding: 1rem;
-    margin-bottom: 3rem;
-    background-color: $secondary;
-   
+    @include cards;
   }
   &__info {
     font-size: 1.3rem;
+    margin: 0;
   }
 
-  &__close{
+  &__close {
     width: 3rem;
     height: 3rem;
   }
+
+  &__card {
+    @include cards;
+    margin: 0;
+    &__title,
+    &__details {
+      margin: 0;
+    }
+    &__title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    &__details {
+      font-size: 1.3rem;
+      color: black;
+      text-decoration: underline;
+    }
+  }
 }
 
-.react-sweet-progress-symbol-absolute div{
+.react-sweet-progress-symbol-absolute div {
   color: white;
 }
-

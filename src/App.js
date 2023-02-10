@@ -35,7 +35,7 @@ function App() {
     },
     {
       id: 3,
-      title: "TRAVEL DOCUMET",
+      title: "TRAVEL DOCUMENT",
       percentage: 5,
     },
     {
@@ -59,7 +59,7 @@ function App() {
           <Route path="/login" element={<LoginPage URL={URL}login={login}isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
           
           <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
-          <Route path="/status" element={<StatusUpdatePage />} />
+          <Route path="/status" element={<StatusUpdatePage cardDetails={cardDetails} />} />
           <Route path="/ticket" element={<TicketPage URL={URL} />} />
           <Route path="/history" element={<HistoryPage />} />
         </Routes>

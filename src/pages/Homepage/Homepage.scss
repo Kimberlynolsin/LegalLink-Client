@@ -27,12 +27,8 @@
   }
 
   &__progress-work {
-    color: #6f8565;
-    background-color: white;
-    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
-    border-radius: 5px;
+   @include cards;
     width: 48%;
-    padding: 2rem;
     margin: 1rem 0;
     &__title {
       margin: 0;
@@ -41,11 +37,7 @@
   }
 
   &__estimate {
-    color: #6f8565;
-    background-color: white;
-    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
-    border-radius: 5px;
-    padding: 2rem;
+    @include cards;
     margin: 1rem 0;
     &__box {
       display: flex;

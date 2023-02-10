@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 function Navigation() {
   const icons = [
     { id: 1, icon: home, alt: "homepage", to: "/" },
-    { id: 1, icon: ticket, alt: "ticket page", to: "/ticket" },
-    { id: 1, icon: history, alt: "update page", to: "/status" },
-    { id: 1, icon: update, alt: "history page", to: "/history" },
+    { id: 4, icon: update, alt: "history page", to: "/status" },
+    { id: 2, icon: ticket, alt: "ticket page", to: "/ticket" },
+    { id: 3, icon: history, alt: "update page", to: "/history" },
   ];
 
   const navbar = icons.map((e) => {
