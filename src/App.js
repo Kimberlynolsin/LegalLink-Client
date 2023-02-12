@@ -27,21 +27,26 @@ function App() {
       id: 1,
       title: "WORK PERMIT",
       percentage: 30,
+      status: 'Started',
+      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada/work-study.html'
     },
     {
       id: 2,
       title: "FINANCIAL AID",
       percentage: 60,
+      status: 'In-Progress'
     },
     {
       id: 3,
       title: "TRAVEL DOCUMENT",
-      percentage: 5,
+      percentage: 50,
+      status: 'In-Progress'
     },
     {
       id: 4,
       title: "TEST",
-      percentage: 90,
+      percentage: 0,
+      status: 'Not Started'
     },
   ];
 

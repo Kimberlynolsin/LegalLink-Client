@@ -1,120 +1,50 @@
 .status {
   padding: $mobile-pad;
 
-  select {
-    background-color: $primary;
-    border: none;
-    color: white;
-    font-family: "Poppins";
-    font-size: 1.8rem;
-    margin: 0;
-
-    &:focus {
-      outline: none;
-    }
-  }
-  &__subtitle {
-    font-size: 1.6rem;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-    margin: 0;
-  }
-
-  &__form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  &__btn {
-    background-color: white;
-    border: none;
-    font-family: "Poppins";
+  &__box {
+    background-color: $secondary;
+    padding: 2rem;
     border-radius: 5px;
-    color: $secondary;
-    padding: 0 2rem;
+    margin-bottom: 2rem;
   }
-
   &__options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include cards;
+    border: none;
   }
   &__application {
     @include cards;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
-    &:hover {
-      border: 1px solid $secondary;
-    }
     p {
       margin: 0;
       font-size: 1.3rem;
     }
   }
 
-  &__title-info {
+  &__status {
+    color: black;
+  }
+  &__title__wrapper{
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
-
-  &__progress {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    &-container {
-      padding: 2rem;
-    }
-  }
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__help {
-    width: 3rem;
-    height: 3rem;
-    flex-shrink: 1;
+  &__title__more{
+    margin-left: 2rem;
   }
 
   &__disclaimer {
     display: flex;
-    @include cards;
-  }
-  &__info {
-    font-size: 1.3rem;
-    margin: 0;
-  }
+    background-color: $secondary;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    align-items: center;
 
-  &__close {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  &__card {
-    @include cards;
-    margin: 0;
-    margin-top: 1rem;
-    padding: 1rem;
-    &__title,
-    &__details {
-      margin: 0;
-    }
-    &__title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    &__details {
-      font-size: 1.3rem;
-      color: black;
-      text-decoration: underline;
+    &__help {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 1rem;
     }
   }
 }

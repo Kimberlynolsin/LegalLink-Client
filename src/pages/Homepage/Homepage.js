@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
 import info from "../../assets/icons/help.png";
 
@@ -13,14 +12,7 @@ const Homepage = ({ cardDetails }) => {
     return (
       <div className="homepage__progress-work" key={element.id}>
         <h3 className="homepage__progress-work__title">{element.title}</h3>
-        <Progress
-          theme={{
-            active: {
-              color: "#61876E",
-            },
-          }}
-          percent={element.percentage}
-        />
+        <p className="homepage__status">Status: {element.status}</p>
       </div>
     );
   });

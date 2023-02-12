@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 
 const HistoryPage = ({ URL }) => {
   const [tickets, setTickets] = useState(null);
-  const [more, setMore] = useState(false)
+  const [expanded, setExpanded] = useState(null);
 
-  const moreInfo = ()=>{
-    setMore(!more)
-  }
+  const moreInfo = (id) => {
+    setExpanded(expanded === id ? null : id);
+  };
 
   useEffect(() => {
     const getTickets = async () => {
@@ -26,19 +26,26 @@ const HistoryPage = ({ URL }) => {
     tickets &&
     tickets.map((element) => {
       return (
-        <div className="history__wrapper" key={element.id}>
-          <h4 className="history__subtitle" onClick={moreInfo}>{element.title}</h4>
-         <p>{element.description}</p>
+      
+         <div className="history__wrapper" key={element.id} >
+          <div className="history__box" onClick={() => moreInfo(element.id)}>
+            <h4 className="history__box__subtitle" >
+              {element.title}
+            </h4>
+            <p className="history__timestamp">
+              {new Date(element.timestamp).toLocaleDateString()}
+            </p>
+          </div>
+          {expanded === element.id &&(<p className="history__box__description">{element.description}</p>)}
         </div>
+
       );
     });
 
   return (
     <section className="history">
       <h2 className="history__title">TICKET HISTORY</h2>
-      <div className="history__container">
-      {ticketArr}
-      </div>
+      <div className="history__container">{ticketArr}</div>
     </section>
   );
 };

@@ -1,27 +1,46 @@
 .history{
     padding: $mobile-pad;
 
-
-    &__container{
-        display: flex
-        
-    }
     &__wrapper{
         @include cards;
-        padding: 2rem;
+        padding: 1rem;
+        margin: 1rem;
 
-        p{
-            font-size: 1.3rem;
-            margin: 0;
-            margin-top: 1rem;
-            color: black;
+        &:hover{
+            background-color: $secondary;
+            color: white;
         }
     }
+
+    &__box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__subtitle{
+            margin: 0;
+            font-weight: 400;
+            font-size: 1.3rem;
+        }
+
+        &__description{
+            color: white;
+            font-size: 1.3rem;
+            color: white;
+        }
+    }
+
+    &__timestamp{
+        color: black;
+        margin: 0;
+        font-size: 1.3rem;
+    }
+
 
     &__subtitle{
         margin: 0;
         font-weight: 400;
-        // color: $tertiary;
+        padding: 0;
     }
 
     

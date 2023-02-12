@@ -8,13 +8,17 @@
   &__box {
     background-color: #6f8565;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
     padding: 2rem;
     display: flex;
     margin:  0;
     &__statement {
       margin: 0;
     }
+  }
+  &__status{
+    font-size: 1.3rem;
+    color: black;
+    margin: 0;
   }
 
   &__subtitle {

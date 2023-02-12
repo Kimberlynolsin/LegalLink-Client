@@ -4,8 +4,7 @@
   padding: $mobile-pad;
   background-color: white;
   position: sticky;
-  bottom: 1px;
-  z-index: 1;
+  bottom: 0;
   &-container {
     display: flex;
     &__icons {
