@@ -68,7 +68,7 @@ const StatusUpdate = ({ cardDetails }) => {
       <div className="status__options">
         {statusCard}
         <div className="status__disclaimer">
-          <img className="status__disclaimer__help" src={help}></img>
+          <img className="status__disclaimer__help" src={help} alt='info'></img>
           <p className="status__disclaimer__text">
             Please note that this is an estimate only and is subjected to change
           </p>
