@@ -1,7 +1,7 @@
 .status {
   padding: $mobile-pad;
 
-  &__title-text{
+  &__title-text {
     font-size: 1.3rem;
   }
   &__box {
@@ -11,9 +11,9 @@
     margin-bottom: 2rem;
   }
 
-  &__statement{
+  &__statement {
     margin: 0;
-    font-size: 1.6rem
+    font-size: 1.6rem;
   }
   &__options {
     @include cards;
@@ -30,13 +30,12 @@
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1.3rem;
-
   }
   &__title__wrapper {
     display: flex;
     justify-content: space-between;
   }
-  &__title-text{
+  &__title-text {
     margin: 0;
   }
 
@@ -44,15 +43,13 @@
     margin-top: 2rem;
     margin-bottom: 0;
     font-size: 1.3rem;
-
   }
-  
+
   &__link {
     margin: 0;
     text-decoration: underline;
     color: black;
     font-size: 1.3rem;
-
   }
 
   &__disclaimer {

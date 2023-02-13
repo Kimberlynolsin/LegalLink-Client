@@ -23,8 +23,8 @@ function Navigation() {
   });
 
   return (
-    <section className="nav">
-      {navbar}
+    <section className="footer">
+      <div className="nav">{navbar}</div>
     </section>
   );
 }

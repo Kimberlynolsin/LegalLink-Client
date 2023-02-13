@@ -20,7 +20,7 @@ const StatusUpdate = ({ cardDetails }) => {
 
   const statusCard = cardDetails.map((element, index) => {
     return (
-      <div className="status__application">
+      <div className="status__application" key={element.id}>
         <div className="status__title-info">
           <div className="status__title__wrapper">
             <p className="status__title-text">{element.title}</p>
@@ -43,10 +43,7 @@ const StatusUpdate = ({ cardDetails }) => {
           {expandStates[index] && (
             <div>
               <p className="status__additional">Additional Information:</p>
-              <Link
-                to= {element.related_links}
-                target="_blank"
-              >
+              <Link to={element.related_links} target="_blank">
                 <p className="status__link">{element.query}</p>
               </Link>
             </div>
@@ -68,7 +65,7 @@ const StatusUpdate = ({ cardDetails }) => {
       <div className="status__options">
         {statusCard}
         <div className="status__disclaimer">
-          <img className="status__disclaimer__help" src={help} alt='info'></img>
+          <img className="status__disclaimer__help" src={help} alt="info"></img>
           <p className="status__disclaimer__text">
             Please note that this is an estimate only and is subjected to change
           </p>
