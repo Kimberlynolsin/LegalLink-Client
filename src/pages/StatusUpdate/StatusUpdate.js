@@ -1,49 +1,79 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
+import more from "../../assets/icons/more.png";
 import help from "../../assets/icons/help.png";
-const StatusUpdate = () => {
-  const [openModal, setopenModal] = useState(false);
-  const percentage = 50;
 
-  const toggleModal = () => {
-    setopenModal(!openModal);
+const StatusUpdate = ({ cardDetails }) => {
+  const [expandStates, setExpandStates] = useState([]);
+
+  useEffect(() => {
+    setExpandStates(Array(cardDetails.length).fill(false));
+  }, [cardDetails]);
+
+  const handleClick = (index) => {
+    const newExpandStates = [...expandStates];
+    newExpandStates[index] = !newExpandStates[index];
+    setExpandStates(newExpandStates);
   };
-  return (
-    <section className="status">
-      <h2 className="homepage__title">STATUS UPDATE</h2>
 
-      <div className="status__wrapper">
-        <h3 className="status__subtitle">WORK PERMIT</h3>
-        <img
-          src={help}
-          alt="help"
-          className="status__help"
-          onClick={toggleModal}
-        ></img>
-      </div>
-      <div className="status__progress">
-        <div className="status__progress-container">
+  const statusCard = cardDetails.map((element, index) => {
+    return (
+      <div className="status__application">
+        <div className="status__title-info">
+          <div className="status__title__wrapper">
+            <p className="status__title-text">{element.title}</p>
+            <img
+              src={more}
+              alt="expand"
+              onClick={() => handleClick(index)}
+              className="status__title__more"
+            ></img>
+          </div>
           <Progress
-            type="circle"
-            percent={30}
             theme={{
               active: {
-                color: "#6F8565",
-                trailColor: "#efefef",
+                color: "#61876E",
               },
             }}
+            percent={element.percentage}
           />
+          <p className="status__status">Status: {element.status}</p>
+          {expandStates[index] && (
+            <div>
+              <p className="status__additional">Additional Information:</p>
+              <Link
+                to= {element.related_links}
+                target="_blank"
+              >
+                <p className="status__link">{element.query}</p>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
-      {openModal && (
+    );
+  });
+
+  return (
+    <section className="status">
+      <h2 className="status__title">STATUS UPDATE</h2>
+      <div className="status__box">
+        <p className="status__statement">
+          Here you will find further information regarding the status of your
+          application.
+        </p>
+      </div>
+      <div className="status__options">
+        {statusCard}
         <div className="status__disclaimer">
-          <p className="status__info">
-            Please note that the progress bar is an estimate only and is
-            subjected to change.
+          <img className="status__disclaimer__help" src={help} alt='info'></img>
+          <p className="status__disclaimer__text">
+            Please note that this is an estimate only and is subjected to change
           </p>
         </div>
-      )}
+      </div>
     </section>
   );
 };

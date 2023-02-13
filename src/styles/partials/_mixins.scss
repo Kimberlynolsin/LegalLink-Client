@@ -10,3 +10,12 @@
     padding: 1rem ;
     font-family: 'Poppins';
 }
+
+@mixin cards{
+    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
+    border-radius:5px  ;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background-color: white;
+    color: $secondary;
+}

@@ -1,50 +1,76 @@
-.status{
-padding: $mobile-pad;
-&__subtitle {
-    font-size: 1.6rem;
-  }
+.status {
+  padding: $mobile-pad;
 
-  &__progress {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  &__title-text{
+    font-size: 1.3rem;
+  }
+  &__box {
+    background-color: $secondary;
+    padding: 2rem;
+    border-radius: 5px;
     margin-bottom: 2rem;
-
-    &-container {
-     padding: 2rem;    
-    }
   }
-  &__wrapper {
+
+  &__statement{
+    margin: 0;
+    font-size: 1.6rem
+  }
+  &__options {
+    @include cards;
+    border: none;
+  }
+  &__application {
+    @include cards;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__status {
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+
+  }
+  &__title__wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
-  &__help {
-    width: 3rem;
-    height: 3rem;
-    flex-shrink: 1;
+  &__title-text{
+    margin: 0;
+  }
+
+  &__additional {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+
+  }
+  
+  &__link {
+    margin: 0;
+    text-decoration: underline;
+    color: black;
+    font-size: 1.3rem;
+
   }
 
   &__disclaimer {
     display: flex;
-    box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
-    border-radius:5px  ;
-    padding: 1rem;
-    margin-bottom: 3rem;
     background-color: $secondary;
-   
-  }
-  &__info {
-    font-size: 1.3rem;
-  }
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    align-items: center;
 
-  &__close{
-    width: 3rem;
-    height: 3rem;
+    &__help {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 1rem;
+    }
   }
 }
 
-.react-sweet-progress-symbol-absolute div{
+.react-sweet-progress-symbol-absolute div {
   color: white;
 }
-

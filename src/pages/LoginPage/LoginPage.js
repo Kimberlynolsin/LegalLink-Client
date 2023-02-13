@@ -5,6 +5,7 @@ import axios from "axios";
 const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
   const formRef = useRef();
+  console.log(isLoggedIn);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,15 +27,12 @@ const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
       })
       .then(({ data }) => {
         console.log(data);
-        sessionStorage.setItem("token", data.token);
-        setIsLoggedIn(true);
-        // setIsLoginError(false);
-
+        setIsLoggedIn(data);
+        console.log(data);
         navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
-        // setIsLoginError(err);
       });
   };
 

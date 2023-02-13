@@ -1,0 +1,47 @@
+.history{
+    padding: $mobile-pad;
+
+    &__wrapper{
+        @include cards;
+        padding: 1rem;
+        margin: 1rem;
+
+        &:hover{
+            background-color: $secondary;
+            color: white;
+        }
+    }
+
+    &__box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__subtitle{
+            margin: 0;
+            font-weight: 400;
+            font-size: 1.3rem;
+        }
+
+        &__description{
+            color: white;
+            font-size: 1.3rem;
+            color: white;
+        }
+    }
+
+    &__timestamp{
+        color: white;
+        margin: 0;
+        font-size: 1.3rem;
+    }
+
+
+    &__subtitle{
+        margin: 0;
+        font-weight: 400;
+        padding: 0;
+    }
+
+    
+}

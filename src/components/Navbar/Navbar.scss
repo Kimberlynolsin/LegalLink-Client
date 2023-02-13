@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: $mobile-pad;
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+  &-container {
+    display: flex;
+    &__icons {
+      width: 3rem;
+    }
+  }
+}

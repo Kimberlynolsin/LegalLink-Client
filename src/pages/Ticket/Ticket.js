@@ -34,7 +34,7 @@ const TicketPage = ({ URL }) => {
     <section className="ticket">
       <h2 className="ticket__title">TICKET</h2>
       <div className="ticket__box">
-        <p>
+        <p className="ticket__descript">
           Have questions? Submit a ticket with a description of your problem and
           we'll get back to you as soon as possible.
         </p>
