@@ -6,7 +6,7 @@ communication of updates, information and prompt responses to questions and conc
 
 
 ## LegalLink Giphy ##
-//add gif or screen shots of app
+![](https://media.giphy.com/media/ne0cIXaNu2nmVbtQqM/giphy.gif)
 
 
 
@@ -29,11 +29,11 @@ Step 2: To start the app run,
 
 
 ## Important ##
-**Please note:** To run the client-side, you will also need to install the server side code found here [Named Link](https://github.com/Kimberlynolsin/LegalLink-Server// "Back-End Repository"). Server-side installation steps will be available on the repository
+**Please note:** To run the client-side, you will also need to install the server side code found here [Server-Side](https://github.com/Kimberlynolsin/LegalLink-Server/ "Back-End Repository"). Server-side installation steps will be available on the repository
 
 
 
 ## Conract Information ##
 **Email:** kimberly.nolsin@gmail.com
-**LinkedIn:** [Named Link](www.linkedin.com/in/kimberly-nolsin/ "Profile")
+**LinkedIn:** [Profile](https://www.linkedin.com/in/kimberly-nolsin/ "Profile")
 
