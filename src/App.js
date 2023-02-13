@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
@@ -27,33 +23,37 @@ function App() {
       id: 1,
       title: "WORK PERMIT",
       percentage: 30,
-      status: 'Started',
-      query:'Work Permit Extension',
-      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada/work-study.html'
+      status: "Started",
+      query: "Work Permit Extension",
+      related_links:
+        "https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada/work-study.html",
     },
     {
       id: 2,
       title: "FINANCIAL AID",
       percentage: 60,
-      status: 'In-Progress',
-      query:'Resettlement Assistance Program',
-      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/help-within-canada/financial.html'
+      status: "In-Progress",
+      query: "Resettlement Assistance Program",
+      related_links:
+        "https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/help-within-canada/financial.html",
     },
     {
       id: 3,
       title: "TRAVEL DOCUMENT",
       percentage: 50,
-      status: 'In-Progress',
-      query:'Travel Document Process',
-      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/travel-documents-non-canadians.html'
+      status: "In-Progress",
+      query: "Travel Document Process",
+      related_links:
+        "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/travel-documents-non-canadians.html",
     },
     {
       id: 4,
       title: "STUDY PERMIT",
       percentage: 0,
-      status: 'Not Started',
-      query:'Studying in Canada',
-      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/temporary-residents/study-permits/refugees-protected-persons.html'
+      status: "Not Started",
+      query: "Studying in Canada",
+      related_links:
+        "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/temporary-residents/study-permits/refugees-protected-persons.html",
     },
   ];
 
@@ -61,28 +61,48 @@ function App() {
     if (!isSignedUp) {
       setIsSignedUp(true);
     }
-  }, []);
+  }, [isSignedUp]);
   return (
-    <>
+    <main>
       <Router>
         <PageHeader />
         <Routes>
-          <Route element={<Layout isLoggedIn={isLoggedIn} /> }>
+          <Route element={<Layout isLoggedIn={isLoggedIn} />}>
             <Route path="/" element={<Homepage cardDetails={cardDetails} />} />
-            <Route path="/status" element={<StatusUpdatePage cardDetails={cardDetails} />} />
+            <Route
+              path="/status"
+              element={<StatusUpdatePage cardDetails={cardDetails} />}
+            />
             <Route path="/ticket" element={<TicketPage URL={URL} />} />
-            <Route path="/history" element={<HistoryPage URL={URL}/>} />
+            <Route path="/history" element={<HistoryPage URL={URL} />} />
           </Route>
 
-          <Route path="/signup"element={<SignUpPage URL={URL} signup={signup} isSignedUp={isSignedUp} setIsSignedUp={setIsSignedUp}/>}/>
-          <Route path="/login" element={<LoginPage URL={URL}login={login}isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
+          <Route
+            path="/signup"
+            element={
+              <SignUpPage
+                URL={URL}
+                signup={signup}
+                isSignedUp={isSignedUp}
+                setIsSignedUp={setIsSignedUp}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                URL={URL}
+                login={login}
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
         </Routes>
-        
       </Router>
-    </>
+    </main>
   );
 }
-
-
 
 export default App;

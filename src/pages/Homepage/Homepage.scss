@@ -10,12 +10,12 @@
     border-radius: 5px;
     padding: 2rem;
     display: flex;
-    margin:  0;
+    margin: 0;
     &__statement {
       margin: 0;
     }
   }
-  &__status{
+  &__status {
     font-size: 1.3rem;
     color: black;
     margin: 0;
@@ -31,7 +31,7 @@
   }
 
   &__progress-work {
-   @include cards;
+    @include cards;
     width: 48%;
     margin: 1rem 0;
     &__title {
@@ -39,7 +39,7 @@
       font-size: 1.3rem;
     }
   }
-  &__statement{
+  &__statement {
     margin: 0;
   }
 
@@ -50,7 +50,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
     }
     &__title {
       font-size: 1.3rem;
@@ -62,17 +61,17 @@
       color: black;
     }
 
-    &__info{
+    &__info {
       height: 2rem;
       width: 2rem;
     }
 
-    &__img{
+    &__img {
       background-color: $secondary;
       height: 2rem;
       border-radius: 10px;
     }
-    &__popup{
+    &__popup {
       font-size: 1.3rem;
     }
   }

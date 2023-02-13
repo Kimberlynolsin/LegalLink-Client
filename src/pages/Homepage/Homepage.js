@@ -38,7 +38,7 @@ const Homepage = ({ cardDetails }) => {
               className="homepage__estimate__info"
               src={info}
               onClick={toggleModal}
-              alt='help'
+              alt="help"
             ></img>
           </div>
         </div>

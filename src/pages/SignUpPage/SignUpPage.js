@@ -20,29 +20,25 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
       return;
     }
 
-
     axios
-    .post(`${URL}${signup}`, {
-      name: name,
-      username: username,
-      password: password,
-    })
-    
-    .then(() => {
-      setIsSignedUp(true);
+      .post(`${URL}${signup}`, {
+        name: name,
+        username: username,
+        password: password,
+      })
 
-      if (isSignedUp) {
-        alert('Sign up successful')
-        navigate("/login");
-      }
+      .then(() => {
+        setIsSignedUp(true);
 
+        if (isSignedUp) {
+          alert("Sign up successful");
+          navigate("/login");
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-      form.reset();
-
-  
+    form.reset();
   };
   return (
     <section className="login">
