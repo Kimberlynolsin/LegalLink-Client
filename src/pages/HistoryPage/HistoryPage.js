@@ -45,6 +45,11 @@ const HistoryPage = ({ URL }) => {
   return (
     <section className="history">
       <h2 className="history__title">TICKET HISTORY</h2>
+      <div className="homepage__box">
+        <p className="homepage__statement">
+          View your past history and additional information.
+        </p>
+      </div>
       <div className="history__container">{ticketArr}</div>
     </section>
   );

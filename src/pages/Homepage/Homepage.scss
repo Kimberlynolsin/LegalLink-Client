@@ -39,6 +39,9 @@
       font-size: 1.3rem;
     }
   }
+  &__statement{
+    margin: 0;
+  }
 
   &__estimate {
     @include cards;

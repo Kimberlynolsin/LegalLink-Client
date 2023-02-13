@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
@@ -6,37 +6,48 @@ import more from "../../assets/icons/more.png";
 import help from "../../assets/icons/help.png";
 
 const StatusUpdate = ({ cardDetails }) => {
-  const [additionalInfo, setAdditionalInfo] = useState(false);
+  const [expandStates, setExpandStates] = useState([]);
 
-  const handleClick = () => {
-    setAdditionalInfo(!additionalInfo);
+  useEffect(() => {
+    setExpandStates(Array(cardDetails.length).fill(false));
+  }, [cardDetails]);
+
+  const handleClick = (index) => {
+    const newExpandStates = [...expandStates];
+    newExpandStates[index] = !newExpandStates[index];
+    setExpandStates(newExpandStates);
   };
 
-  const statusCard = cardDetails.map((element) => {
+  const statusCard = cardDetails.map((element, index) => {
     return (
       <div className="status__application">
         <div className="status__title-info">
           <div className="status__title__wrapper">
             <p className="status__title-text">{element.title}</p>
-            <img src={more} alt="expand" onClick={handleClick} className='status__title__more'></img>
-            </div>
-            <Progress
-              theme={{
-                active: {
-                  color: "#61876E",
-                },
-              }}
-              percent={element.percentage}
-            />
+            <img
+              src={more}
+              alt="expand"
+              onClick={() => handleClick(index)}
+              className="status__title__more"
+            ></img>
+          </div>
+          <Progress
+            theme={{
+              active: {
+                color: "#61876E",
+              },
+            }}
+            percent={element.percentage}
+          />
           <p className="status__status">Status: {element.status}</p>
-          {additionalInfo && (
+          {expandStates[index] && (
             <div>
               <p className="status__additional">Additional Information:</p>
               <Link
-                to="https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada/work-study.html"
+                to= {element.related_links}
                 target="_blank"
               >
-                <p className="status__link">Work Permit</p>
+                <p className="status__link">{element.query}</p>
               </Link>
             </div>
           )}

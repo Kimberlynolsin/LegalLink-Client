@@ -28,25 +28,32 @@ function App() {
       title: "WORK PERMIT",
       percentage: 30,
       status: 'Started',
+      query:'Work Permit Extension',
       related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/claim-protection-inside-canada/work-study.html'
     },
     {
       id: 2,
       title: "FINANCIAL AID",
       percentage: 60,
-      status: 'In-Progress'
+      status: 'In-Progress',
+      query:'Resettlement Assistance Program',
+      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/help-within-canada/financial.html'
     },
     {
       id: 3,
       title: "TRAVEL DOCUMENT",
       percentage: 50,
-      status: 'In-Progress'
+      status: 'In-Progress',
+      query:'Travel Document Process',
+      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/travel-documents-non-canadians.html'
     },
     {
       id: 4,
-      title: "TEST",
+      title: "STUDY PERMIT",
       percentage: 0,
-      status: 'Not Started'
+      status: 'Not Started',
+      query:'Studying in Canada',
+      related_links:'https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/operational-bulletins-manuals/temporary-residents/study-permits/refugees-protected-persons.html'
     },
   ];
 

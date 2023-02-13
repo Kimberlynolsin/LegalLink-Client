@@ -1,11 +1,19 @@
 .status {
   padding: $mobile-pad;
 
+  &__title-text{
+    font-size: 1.3rem;
+  }
   &__box {
     background-color: $secondary;
     padding: 2rem;
     border-radius: 5px;
     margin-bottom: 2rem;
+  }
+
+  &__statement{
+    margin: 0;
+    font-size: 1.6rem
   }
   &__options {
     @include cards;
@@ -15,22 +23,36 @@
     @include cards;
     padding: 1rem;
     margin-bottom: 2rem;
-
-    p {
-      margin: 0;
-      font-size: 1.3rem;
-    }
   }
 
   &__status {
     color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+
   }
-  &__title__wrapper{
+  &__title__wrapper {
     display: flex;
     justify-content: space-between;
   }
-  &__title__more{
-    margin-left: 2rem;
+  &__title-text{
+    margin: 0;
+  }
+
+  &__additional {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 1.3rem;
+
+  }
+  
+  &__link {
+    margin: 0;
+    text-decoration: underline;
+    color: black;
+    font-size: 1.3rem;
+
   }
 
   &__disclaimer {
