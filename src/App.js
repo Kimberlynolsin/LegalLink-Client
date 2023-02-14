@@ -11,7 +11,8 @@ import Layout from "./Layout/Layout";
 import "./styles/styles.scss";
 
 function App() {
-  const URL = "http://localhost:8000";
+  const PORT = 8000
+  const URL = `http://localhost:${8000}`;
   const login = "/login";
   const signup = "/signup";
 
