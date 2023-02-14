@@ -17,6 +17,11 @@ const TicketPage = ({ URL }) => {
       description: description,
     };
 
+    if(!title || !description){
+      alert('All fields must be filled')
+      return
+    }
+
     axios
       .post(`${URL}/ticket`, newTicket)
       .then((response) => {

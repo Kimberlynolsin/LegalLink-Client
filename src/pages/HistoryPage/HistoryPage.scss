@@ -28,6 +28,15 @@
       font-size: 1.3rem;
       color: black;
     }
+
+    &__solved {
+      background-color: $primary;
+      color: white;
+      font-size: 1.3rem;
+      border-radius: 5px;
+      width: 17%;
+      text-align: center;
+    }
   }
   &__statement {
     margin: 0;
