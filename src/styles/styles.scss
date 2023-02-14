@@ -1,0 +1,15 @@
+@import "./partials/typography";
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/global";
+
+
+//Components
+@import '../components/Navbar/Navbar.scss';
+@import '../components/PageHeader//PageHeader.scss';
+//Pages
+@import '../pages/Homepage/Homepage.scss';
+@import '../pages/LoginPage/LoginPage.scss';
+@import '../pages/StatusUpdate/StatusUpdate.scss';
+@import '../pages/Ticket/Ticket.scss';
+@import '../pages//HistoryPage//HistoryPage.scss'

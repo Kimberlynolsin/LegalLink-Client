@@ -1,0 +1,21 @@
+@mixin mobile {
+  @media (min-width: $mobile-min) and (max-width: $mobile-max) {
+    @content;
+  }
+}
+
+@mixin inputStyle {
+  border: 0.1rem solid $secondary;
+  border-radius: 5px;
+  padding: 1rem;
+  font-family: "Poppins";
+}
+
+@mixin cards {
+  box-shadow: 0 0 20px rgba($color: black, $alpha: 20%);
+  border-radius: 5px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  background-color: white;
+  color: $secondary;
+}

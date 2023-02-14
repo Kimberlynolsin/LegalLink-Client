@@ -1,0 +1,8 @@
+.header {
+  &__title {
+    color: $secondary;
+    background-color: white;
+    margin: 0;
+    padding: $mobile-pad;
+  }
+}

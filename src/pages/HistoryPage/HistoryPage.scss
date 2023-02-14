@@ -1,0 +1,63 @@
+.history {
+  padding: $mobile-pad;
+
+  &__wrapper {
+    @include cards;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    &:hover {
+      background-color: white;
+      color: $secondary;
+    }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__subtitle {
+      margin: 0;
+      font-weight: 400;
+      font-size: 1.3rem;
+    }
+
+    &__description {
+      color: white;
+      font-size: 1.3rem;
+      color: black;
+    }
+
+    &__solved {
+      background-color: $primary;
+      color: white;
+      font-size: 1.3rem;
+      border-radius: 5px;
+      width: 17%;
+      text-align: center;
+    }
+  }
+  &__statement {
+    margin: 0;
+  }
+
+  &__container-statement {
+    background-color: $secondary;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__timestamp {
+    color: $secondary;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-weight: 400;
+    padding: 0;
+  }
+}

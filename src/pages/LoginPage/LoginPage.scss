@@ -1,0 +1,56 @@
+.login {
+  padding: $mobile-pad;
+  &__title {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin: 2rem 0;
+    border-bottom: 1px solid white;
+    display: flex;
+  }
+
+  [type="text"] {
+    border: none;
+    flex-grow: 1;
+    background-color: $primary;
+    color: white;
+    font-size: 1.6rem;
+    font-family: "Poppins";
+    margin-left: 1rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  [type="password"] {
+    @extend [type="text"];
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+
+    button {
+      border: none;
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      font-family: "Poppins";
+      box-shadow: $box;
+      width: 100%;
+      color: $secondary;
+      font-weight: 600;
+    }
+  }
+  &__link {
+    color: black;
+    text-decoration: underline;
+  }
+}
