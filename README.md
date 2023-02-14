@@ -31,7 +31,7 @@ Step 2: To start the app run,
 ## Important ##
 **Please note:** To run the client-side, you will also need to install the server side code found here [Server-Side](https://github.com/Kimberlynolsin/LegalLink-Server/ "Back-End Repository"). Server-side installation steps will be available on the repository
 
-**Also note:** Make sure to adjust the axios call url to match the port you have set up on your `.env` file on the server side.
+**Also note:** Make sure to adjust `PORT` on app.js to match the port you have set up on your `.env` file on the server side.
 
 
 
