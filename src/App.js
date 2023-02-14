@@ -11,8 +11,8 @@ import Layout from "./Layout/Layout";
 import "./styles/styles.scss";
 
 function App() {
-  const PORT = 8000
-  const URL = `http://localhost:${8000}`;
+
+  const URL = process.env.REACT_APP_BASE_URL
   const login = "/login";
   const signup = "/signup";
 
