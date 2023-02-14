@@ -27,10 +27,8 @@
 
   &__input {
     @include inputStyle;
-    background-color: lightgray;
     &:focus {
       outline: none;
-      background-color: white;
     }
   }
 
@@ -38,10 +36,8 @@
     @include inputStyle;
     resize: none;
     height: 20vh;
-    background-color: lightgray;
     &:focus {
       outline: none;
-      background-color: white;
     }
   }
   &__btn {

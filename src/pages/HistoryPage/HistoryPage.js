@@ -33,7 +33,10 @@ const HistoryPage = ({ URL }) => {
             </p>
           </div>
           {expanded === element.id && (
-            <p className="history__box__description">{element.description}</p>
+            <>
+              <p className="history__box__description">{element.description}</p>
+              <p className="history__box__solved">solved</p>
+            </>
           )}
         </div>
       );
