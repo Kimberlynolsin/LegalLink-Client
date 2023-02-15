@@ -1,8 +1,9 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  padding: $mobile-pad;
+  padding: 1rem;
   background-color: white;
+  border-top: 1px solid $tertiary;
   &-container {
     display: flex;
     &__icons {
