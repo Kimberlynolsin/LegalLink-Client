@@ -1,8 +1,12 @@
 import axios from "axios";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TicketPage = ({ URL }) => {
   const formRef = useRef();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,9 +21,9 @@ const TicketPage = ({ URL }) => {
       description: description,
     };
 
-    if(!title || !description){
-      alert('All fields must be filled')
-      return
+    if (!title || !description) {
+      toast("All fields must be filled");
+      return;
     }
 
     axios
@@ -27,6 +31,10 @@ const TicketPage = ({ URL }) => {
       .then((response) => {
         const { data } = response;
         console.log(data);
+
+        if (data) {
+          navigate("/history");
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -49,7 +57,6 @@ const TicketPage = ({ URL }) => {
           TITLE:
           <input type="text" name="title" className="ticket__input"></input>
         </label>
-
         <label className="ticket__label">
           DESCRIBE YOUR ISSUE:
           <textarea
@@ -58,7 +65,6 @@ const TicketPage = ({ URL }) => {
             className="ticket__textarea"
           ></textarea>
         </label>
-
         <div className="ticket__btn">
           <input
             type="submit"
@@ -66,6 +72,18 @@ const TicketPage = ({ URL }) => {
             className="ticket__submit"
           ></input>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </form>
     </section>
   );
