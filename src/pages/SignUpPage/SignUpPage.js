@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
   const navigate = useNavigate();
@@ -15,8 +17,8 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
     const name = form.name.value;
     const password = form.password.value;
 
-    if (!username || !name || !password) {
-      alert("Please fill in all fields");
+    if (!name || !username || !password) {
+      toast("Please fill in all fields");
       return;
     }
 
@@ -26,7 +28,6 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
         username: username,
         password: password,
       })
-
       .then(() => {
         setIsSignedUp(true);
 
@@ -46,7 +47,6 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
         "No one is a stranger in this world, just a soul in search of a home." -
         Unknown
       </h2>
-
       <form className="login__form" onSubmit={handleSignup} ref={formRef}>
         <label>
           name:
@@ -64,6 +64,18 @@ const SignUpPage = ({ URL, signup, isSignedUp, setIsSignedUp }) => {
         <div className="login__btn-container">
           <button className="login__btn-container__button">SIGN UP</button>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </form>
       <p>
         Have an account? Login in
