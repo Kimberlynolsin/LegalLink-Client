@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
     const password = form.password.value;
 
     if (!username || !password) {
-      alert("Please fill in all fields");
+      toast("Please fill in all fields");
       return;
     }
 
@@ -28,7 +30,6 @@ const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
       .then(({ data }) => {
         console.log(data);
         setIsLoggedIn(data);
-        console.log(data);
         navigate("/");
       })
       .catch((err) => {
@@ -56,6 +57,18 @@ const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
         <div className="login__btn-container">
           <button className="login__btn-container__button">LOGIN</button>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </form>
       <p>
         Don't have an account? Sign Up{" "}
