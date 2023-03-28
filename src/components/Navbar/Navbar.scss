@@ -3,13 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: white;
  
-  &__menu{
-    width: 4rem;
-    height: 4rem;
-  }
-
   &__options{
     justify-content: initial;
   }
@@ -24,7 +18,9 @@
   width: 36px;
   height: 30px;
   right: 24px;
-  top: 26px;
+  top: 42px;
+  width: 6rem;
+  height: 5rem;
 }
 
 /* Color/shape of burger icon bars */
@@ -45,7 +41,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: $primary;
 }
 
 /*
@@ -79,7 +75,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: white;
+  color: $primary;
   margin: .5rem 0;
 }
 

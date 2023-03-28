@@ -1,10 +1,9 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  &__title {
-    color: $secondary;
-    margin: 0;
-    padding: $mobile-pad;
+  // display: flex;
+  // justify-content: space-between;
+  // padding: $mobile-pad;
+
+  &__logo{
+    width: 12rem;
   }
 }

@@ -2,20 +2,21 @@ import { useState } from "react";
 import "react-sweet-progress/lib/style.css";
 import info from "../../assets/icons/help.png";
 
-const Homepage = ({ cardDetails }) => {
+const Homepage = () => {
   const [openDialog, setOpenDialog] = useState(false);
 
+  // console.log(cardDetails)
   const toggleModal = () => {
     setOpenDialog(!openDialog);
   };
-  const cards = cardDetails.map((element) => {
-    return (
-      <div className="homepage__progress-work" key={element.id}>
-        <h3 className="homepage__progress-work__title">{element.title}</h3>
-        <p className="homepage__status">Status: {element.status}</p>
-      </div>
-    );
-  });
+  // const cards = cardDetails.map((element) => {
+  //   return (
+  //     <div className="homepage__progress-work" key={element.id}>
+  //       <h3 className="homepage__progress-work__title">{element.title}</h3>
+  //       <p className="homepage__status">Status: {element.status}</p>
+  //     </div>
+  //   );
+  // });
 
   return (
     <section className="homepage">
@@ -27,7 +28,7 @@ const Homepage = ({ cardDetails }) => {
         </p>
       </div>
       <h3 className="homepage__subtitle">Your application progress</h3>
-      <div className="homepage__content">{cards}</div>
+      {/* <div className="homepage__content">{cards}</div> */}
       <div className="homepage__estimate">
         <div className="homepage__estimate__box">
           <h3 className="homepage__estimate__title">
