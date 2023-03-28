@@ -16,7 +16,11 @@
     font-family: "Poppins";
     font-size: 1.6rem;
     margin: 0;
-    background: #8caa87;
-    color: white;
+    background: $primary;
+    color: $secondary;
+    // padding: $mobile-pad;
+    @include mobile-height
+
+
   }
 }

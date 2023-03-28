@@ -1,31 +1,27 @@
-import home from "../../assets/icons/home.png";
-import ticket from "../../assets/icons/ticket.png";
-import history from "../../assets/icons/history.png";
-import update from "../../assets/icons/status.png";
+// import home from "../../assets/icons/home.png";
+// import ticket from "../../assets/icons/ticket.png";
+// import history from "../../assets/icons/history.png";
+// import update from "../../assets/icons/status.png";
+// import { Link } from "react-router-dom";
+import { useState } from "react";
+import menu from "../../assets/icons/menu.png";
+import { slide as Menu } from 'react-burger-menu'
 import { Link } from "react-router-dom";
 
-function Navigation() {
-  const icons = [
-    { id: 1, icon: home, alt: "homepage", to: "/" },
-    { id: 4, icon: update, alt: "history page", to: "/status" },
-    { id: 2, icon: ticket, alt: "ticket page", to: "/ticket" },
-    { id: 3, icon: history, alt: "update page", to: "/history" },
-  ];
 
-  const navbar = icons.map((e) => {
-    return (
-      <Link to={e.to} key={e.id}>
-        <div className="nav-container">
-          <img src={e.icon} alt={e.alt} className="nav-container__icons"></img>
-        </div>
-      </Link>
-    );
-  });
+function Navigation() {
+
 
   return (
-    <section className="footer">
-      <div className="nav">{navbar}</div>
-    </section>
+    <div className="nav">  
+      <Menu customBurgerIcon={<img src={menu} alt="hamburger menu"></img>} right> 
+      <Link id="home" className="menu-item" to="/">Home</Link>
+      <Link id="about" className="menu-item" to="/status">Status</Link>
+      <Link id="about" className="menu-item" to="/status">Ticket</Link>
+      <Link id="contact" className="menu-item" to="/history">History</Link>
+    </Menu>
+
+    </div>
   );
 }
 

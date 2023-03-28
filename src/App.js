@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
 import PageHeader from "./components/PageHeader/PageHeader";
 import StatusUpdatePage from "./pages/StatusUpdate/StatusUpdate";
 import TicketPage from "./pages/Ticket/Ticket";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
-import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import Layout from "./Layout/Layout";
 import "./styles/styles.scss";
 
@@ -66,6 +67,7 @@ function App() {
   return (
     <main>
       <Router>
+        <ToastContainer/>
         <PageHeader />
         <Routes>
           <Route element={<Layout isLoggedIn={isLoggedIn} />}>
@@ -78,17 +80,6 @@ function App() {
             <Route path="/history" element={<HistoryPage URL={URL} />} />
           </Route>
 
-          <Route
-            path="/signup"
-            element={
-              <SignUpPage
-                URL={URL}
-                signup={signup}
-                isSignedUp={isSignedUp}
-                setIsSignedUp={setIsSignedUp}
-              />
-            }
-          />
           <Route
             path="/login"
             element={

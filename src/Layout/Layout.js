@@ -17,7 +17,7 @@ function Layout({ isLoggedIn }) {
   return (
     <>
       <Outlet />
-      {isLoggedIn && <Navbar />}
+      {/* {isLoggedIn && <Navbar />} */}
     </>
   );
 }

@@ -1,5 +1,6 @@
 .login {
   padding: $mobile-pad;
+  @include mobile-height;
   &__title {
     font-weight: 400;
     font-size: 2rem;
@@ -52,5 +53,11 @@
   &__link {
     color: black;
     text-decoration: underline;
+  }
+
+  &__google {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 }
