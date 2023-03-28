@@ -2,10 +2,10 @@ import { useState } from "react";
 import "react-sweet-progress/lib/style.css";
 import info from "../../assets/icons/help.png";
 
-const Homepage = () => {
+const Homepage = ({status}) => {
   const [openDialog, setOpenDialog] = useState(false);
 
-  // console.log(cardDetails)
+  console.log(status)
   const toggleModal = () => {
     setOpenDialog(!openDialog);
   };
@@ -21,13 +21,13 @@ const Homepage = () => {
   return (
     <section className="homepage">
       <h2 className="homepage__title">HOME</h2>
-      <div className="homepage__box">
+      {/* <div className="homepage__box">
         <p className="homepage__statement">
           Easing your immigration journey with transparent updates, prompt
           support, and accessible history.
         </p>
-      </div>
-      <h3 className="homepage__subtitle">Your application progress</h3>
+      </div> */}
+      {/* <h3 className="homepage__subtitle">Your application progress</h3> */}
       {/* <div className="homepage__content">{cards}</div> */}
       <div className="homepage__estimate">
         <div className="homepage__estimate__box">
