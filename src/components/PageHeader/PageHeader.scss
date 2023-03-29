@@ -1,9 +1,14 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: $mobile-pad;
+  // padding: $mobile-pad;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: $primary;
 
   &__logo{
     width: 6rem;
+    // margin: 0 2rem;
   }
 }

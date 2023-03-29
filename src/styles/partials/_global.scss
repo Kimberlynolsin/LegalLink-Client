@@ -11,23 +11,22 @@
   a {
     text-decoration: none;
   }
-  
-  p,
-  h1,
-  h3,
-  h4{
+
+  p {
     color: $primary;
+  }
+  hr{
+    height: .5px;
   }
 
   body {
-    font-family: "Poppins";
+    // font-family: "Poppins";
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.6rem;
     margin: 0;
     background: $primary;
     color: $quad;
-    // padding: $mobile-pad;
-    @include mobile-height
-
-
+    padding: $mobile-pad;
+    // @include mobile-height;
   }
 }

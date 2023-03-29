@@ -6,19 +6,49 @@ import TicketPage from "./pages/Ticket/Ticket";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import PageHeader from "./components/PageHeader/PageHeader";
 import "./styles/styles.scss";
+import { ToastContainer } from "react-toastify";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
+  const URL = process.env.REACT_APP_BASE_URL;
+
+  const [status, setStatus] = useState(null);
+
+  useEffect(() => {
+    const getStatus = async () => {
+      try {
+        const { data } = await axios.get(`${URL}/status`);
+        setStatus(data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getStatus();
+  }, []);
+
+  console.log(status);
+
+  if (!status) {
+    return (
+      <>
+        <p>Page is loading</p>
+      </>
+    );
+  }
+
   return (
-      <Router>
+    <Router>
       <PageHeader />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/status" element={<StatusUpdatePage />} />
-          <Route path="/ticket" element={<TicketPage />} />
-          <Route path="/history" element={<HistoryPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </Router>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Homepage status={status} />} />
+        <Route path="/status" element={<StatusUpdatePage />} />
+        <Route path="/ticket" element={<TicketPage />} />
+        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
 

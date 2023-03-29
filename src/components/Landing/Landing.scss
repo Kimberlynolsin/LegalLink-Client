@@ -1,0 +1,109 @@
+.landing {
+  // padding: $mobile-pad;
+  // @include mobile-height;
+  height: 100vh;
+
+  &__title {
+    display: block;
+    color: $secondary;
+    margin-top: 6rem;
+    margin-bottom: 0;
+  }
+  &__box {
+    background-color: $secondary;
+    border-radius: 5px;
+    padding: 2rem;
+    display: flex;
+    margin: 0;
+    &__statement {
+      margin: 0;
+    }
+  }
+  &__status {
+    font-size: 1.3rem;
+    color: white;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    //   flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100vh;
+  }
+
+  &__progress-work {
+    //   @include cards;
+    //   background-color: white;
+    width: 48%;
+    margin: 1rem 0;
+    &__title {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__solution {
+    display: flex;
+    border-radius: 5px;
+    background-color: $quad;
+    height: 3rem;
+    align-items: center;
+}
+&__resolution {
+      width: 11rem;
+    padding: 2rem;
+    text-align: center;
+    margin: 0;
+  }
+  &__statement {
+    margin: 0;
+  }
+
+  &__estimate {
+    //   @include cards;
+    //   background-color: white;
+    margin: 1rem 0;
+    &__box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__title {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+    &__details {
+      margin: 1rem 0 0 0;
+      font-size: 1.3rem;
+      color: black;
+    }
+
+    &__info {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &__img {
+      background-color: $secondary;
+      height: 2rem;
+      border-radius: 10px;
+    }
+    &__popup {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.react-sweet-progress-symbol {
+  font-size: 1.3rem;
+}

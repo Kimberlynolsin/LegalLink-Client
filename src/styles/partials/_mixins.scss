@@ -16,13 +16,14 @@
   border-radius: 5px;
   padding: 2rem;
   margin-bottom: 3rem;
-  background-color: $secondary;
-  color: $secondary;
+  // background-color: $secondary;
+  background-color: $quad;
+  // color: $secondary;
 }
 
 @mixin mobile-height {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
