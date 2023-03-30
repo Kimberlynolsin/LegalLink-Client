@@ -26,7 +26,8 @@
     margin: 0;
     background: $primary;
     color: $quad;
-    padding: $mobile-pad;
-    // @include mobile-height;
+    margin: $mobile-pad;
+    padding-top: 0;
+    @include mobile-height;
   }
 }

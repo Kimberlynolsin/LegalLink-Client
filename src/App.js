@@ -14,6 +14,7 @@ function App() {
   const URL = process.env.REACT_APP_BASE_URL;
 
   const [status, setStatus] = useState(null);
+  const [history,setHistory] = useState(null)
 
   useEffect(() => {
     const getStatus = async () => {
@@ -42,7 +43,7 @@ function App() {
       <PageHeader />
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Homepage status={status} />} />
+        <Route path="/" element={<Homepage status={status} history={history} setHistory={setHistory} url={URL}/>} />
         <Route path="/status" element={<StatusUpdatePage />} />
         <Route path="/ticket" element={<TicketPage />} />
         <Route path="/history" element={<HistoryPage />} />
