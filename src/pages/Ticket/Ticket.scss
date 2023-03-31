@@ -1,5 +1,4 @@
 .ticket {
-  padding: $mobile-pad;
 
   &__box {
     background-color: #6f8565;
@@ -22,11 +21,12 @@
   &__label {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    margin: 1rem 0 1rem 0;
   }
 
   &__input {
     @include inputStyle;
+    margin-top: 1rem;
     &:focus {
       outline: none;
     }
@@ -36,10 +36,38 @@
     @include inputStyle;
     resize: none;
     height: 20vh;
+    margin-top: 1rem;
     &:focus {
       outline: none;
     }
   }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__select {
+    margin-top: 1rem;
+    border-radius: 5px;
+    @include inputStyle;
+    padding: 1rem 1rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__option {
+    background-color: white;
+    color: $primary;
+  }
+
+  &__select::selection {
+    background-color: $secondary;
+    color: white;
+  }
+
   &__btn {
     display: flex;
     justify-content: center;
@@ -47,12 +75,11 @@
   }
   &__submit {
     width: 100%;
-    background-color: $secondary;
+    background-color: $primary;
     color: white;
     font-family: "Poppins";
-    border: none;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 1.5rem 1rem;
-    box-shadow: $box;
   }
 }

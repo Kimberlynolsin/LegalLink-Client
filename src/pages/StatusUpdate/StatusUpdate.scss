@@ -1,5 +1,5 @@
 .status {
-  padding: $mobile-pad;
+  // padding: $mobile-pad;
 
   &__title-text {
     font-size: 1.3rem;
@@ -16,11 +16,12 @@
     font-size: 1.6rem;
   }
   &__options {
-    @include cards;
+    // @include cards;
     border: none;
   }
   &__application {
     @include cards;
+    background-color: white;
     padding: 1rem;
     margin-bottom: 2rem;
   }

@@ -44,8 +44,8 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Homepage status={status} history={history} setHistory={setHistory} url={URL}/>} />
-        <Route path="/status" element={<StatusUpdatePage />} />
-        <Route path="/ticket" element={<TicketPage />} />
+        <Route path="/status" element={<StatusUpdatePage status={status}/>} />
+        <Route path="/ticket" element={<TicketPage url={URL}/>} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
