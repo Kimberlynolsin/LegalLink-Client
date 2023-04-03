@@ -1,8 +1,11 @@
 .landing {
-  // padding: $mobile-pad;
-  // @include mobile-height;
-  height: 100vh;
 
+  &__flexed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    // height: 100vh;
+  }
   &__title {
     display: block;
     color: $secondary;
@@ -31,14 +34,11 @@
   &__content {
     display: flex;
     flex-direction: column;
-    //   flex-wrap: wrap;
     // justify-content: space-evenly;
-    height: 100vh;
+    flex-grow: 1;
   }
 
   &__progress-work {
-    //   @include cards;
-    //   background-color: white;
     width: 48%;
     margin: 1rem 0;
     &__title {
@@ -58,9 +58,9 @@
     background-color: $quad;
     height: 3rem;
     align-items: center;
-}
-&__resolution {
-      width: 11rem;
+  }
+  &__resolution {
+    width: 11rem;
     padding: 2rem;
     text-align: center;
     margin: 0;
@@ -71,8 +71,10 @@
 
   &__estimate {
     //   @include cards;
-    //   background-color: white;
-    margin: 1rem 0;
+    background-color: white;
+    border-radius: 5px;
+    padding: 2rem;
+    margin: 2rem 0;
     &__box {
       display: flex;
       align-items: center;
@@ -81,11 +83,12 @@
     &__title {
       font-size: 1.3rem;
       margin: 0;
+      color: $primary;
     }
     &__details {
       margin: 1rem 0 0 0;
       font-size: 1.3rem;
-      color: $secondary;
+      color: $primary;
       font-weight: 700;
     }
 
@@ -101,7 +104,7 @@
     }
     &__popup {
       font-size: 1.3rem;
-      color: white;
+      color: $primary;
     }
   }
 }

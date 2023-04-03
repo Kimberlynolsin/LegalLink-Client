@@ -14,18 +14,21 @@ const Landing = ({ status }) => {
     status.map((element) => {
       return (
         <>
-          {/* <hr></hr> */}
-          <div className="landing__container">
-          <div className="landing__progress-work" key={element.id}>
-            <h3 className="landing__progress-work__title">{element.title}</h3>
-            <p className="landing__status">Status: {element.status}</p>
-          </div>
-          <div className="landing__solution">
-            <p className="landing__resolution">{element.resolution}</p>
+          <div key={element.id}>
+            <div className="landing__container">
+              <div className="landing__progress-work" key={element.id}>
+                <h3 className="landing__progress-work__title">
+                  {element.title}
+                </h3>
+                <p className="landing__status">Status: {element.status}</p>
+              </div>
+              <div className="landing__solution">
+                <p className="landing__resolution">{element.resolution}</p>
+              </div>
             </div>
+            <div>
+              <hr></hr>
             </div>
-          <div>
-            <hr></hr>
           </div>
         </>
       );
@@ -34,13 +37,7 @@ const Landing = ({ status }) => {
   return (
     <section className="landing">
       <h2 className="landing__title">HOME</h2>
-      {/* <div className="landing__box">
-        <p className="landing__statement">
-          Easing your immigration journey with transparent updates, prompt
-          support, and accessible history.
-        </p>
-      </div> */}
-      {/* <h3 className="landing__subtitle">Your application progress</h3> */}
+      <div className="landing__flexed">
       <div className="landing__content">{cards}</div>
       <div className="landing__estimate">
         <div className="landing__estimate__box">
@@ -64,6 +61,7 @@ const Landing = ({ status }) => {
             prior to the actual proceedings.
           </p>
         )}
+      </div>
       </div>
     </section>
   );
