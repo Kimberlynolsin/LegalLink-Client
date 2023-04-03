@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    // height: 100vh;
   }
   &__title {
     display: block;
@@ -33,7 +32,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    // justify-content: space-evenly;
     flex-grow: 1;
     border: 1px solid white;
     border-radius: 5px;
@@ -48,17 +46,11 @@
       font-size: 1.3rem;
     }
   }
-  &__container {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
-  }
 
   &__solution {
     display: flex;
     border-radius: 5px;
     background-color: white;
-    // height: 3rem;
     align-items: center;
     width: 100%;
     padding: 0.6rem;
@@ -67,6 +59,7 @@
   }
   &__resolution {
     margin: 0;
+    font-size: 1.3rem;
   }
   &__statement {
     margin: 0;
@@ -116,4 +109,5 @@
 
 .react-sweet-progress-symbol {
   font-size: 1.3rem;
+  color: white;
 }

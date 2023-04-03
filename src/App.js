@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
-import StatusUpdatePage from "./pages/StatusUpdate/StatusUpdate";
 import TicketPage from "./pages/Ticket/Ticket";
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import PageHeader from "./components/PageHeader/PageHeader";
@@ -43,7 +42,6 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Homepage status={status} history={history} setHistory={setHistory} url={URL}/>} />
-        <Route path="/status" element={<StatusUpdatePage status={status}/>} />
         <Route path="/ticket" element={<TicketPage url={URL}/>} />
         <Route path="/history" element={<HistoryPage history={history} url={URL} />} />
         <Route path="/login" element={<LoginPage />} />
