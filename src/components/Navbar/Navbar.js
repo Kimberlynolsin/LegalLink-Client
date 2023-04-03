@@ -18,9 +18,6 @@ function Navigation() {
         <Link id="home" className="menu-item" to="/">
           Home
         </Link>
-        <Link id="about" className="menu-item" to="/status">
-          Status
-        </Link>
         <Link id="ticket" className="menu-item" to="/ticket">
           Ticket
         </Link>

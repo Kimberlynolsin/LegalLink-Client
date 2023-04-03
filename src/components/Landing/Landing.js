@@ -5,12 +5,6 @@ import "react-sweet-progress/lib/style.css";
 import { Progress } from "react-sweet-progress";
 
 const Landing = ({ status }) => {
-  const [openDialog, setOpenDialog] = useState(false);
-
-  const toggleModal = () => {
-    setOpenDialog(!openDialog);
-  };
-
   const cards =
     status &&
     status.map((element) => {
@@ -60,19 +54,17 @@ const Landing = ({ status }) => {
               <img
                 className="landing__estimate__info"
                 src={info}
-                onClick={toggleModal}
                 alt="help"
               ></img>
             </div>
           </div>
           <p className="landing__estimate__details">To be determined</p>
-          {openDialog && (
-            <p className="landing__estimate__popup">
-              Please be advised that you will receive an official notification
-              in your mailbox regarding the scheduled date of your court
-              hearing, prior to the actual proceedings.
-            </p>
-          )}
+
+          <p className="landing__estimate__popup">
+            Please be advised that you will receive an official notification in
+            your mailbox regarding the scheduled date of your court hearing,
+            prior to the actual proceedings.
+          </p>
         </div>
       </div>
     </section>
