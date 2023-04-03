@@ -64,13 +64,13 @@ const StatusUpdate = ({ status }) => {
       </div> */}
       <div className="status__options">
         {statusCard}
+      </div>
         <div className="status__disclaimer">
           <img className="status__disclaimer__help" src={help} alt="info"></img>
           <p className="status__disclaimer__text">
             Please note that this is an estimate only and is subjected to change
           </p>
         </div>
-      </div>
     </section>
   );
 };
