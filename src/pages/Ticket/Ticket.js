@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const TicketPage = ({ URL }) => {
+const TicketPage = ({ url }) => {
   const formRef = useRef();
   const navigate = useNavigate();
 
@@ -15,10 +15,12 @@ const TicketPage = ({ URL }) => {
 
     const title = form.title.value;
     const description = form.description.value;
+    const type = form.selected__type.value;
 
     const newTicket = {
       title: title,
       description: description,
+      type: type,
     };
 
     if (!title || !description) {
@@ -27,7 +29,7 @@ const TicketPage = ({ URL }) => {
     }
 
     axios
-      .post(`${URL}/ticket`, newTicket)
+      .post(`${url}/ticket`, newTicket)
       .then((response) => {
         const { data } = response;
         console.log(data);
@@ -46,13 +48,17 @@ const TicketPage = ({ URL }) => {
   return (
     <section className="ticket">
       <h2 className="ticket__title">TICKET</h2>
-      <div className="ticket__box">
-        <p className="ticket__descript">
-          Have questions? Submit a ticket with a description of your problem and
-          we'll get back to you as soon as possible.
-        </p>
-      </div>
       <form className="ticket__form" onSubmit={handleSubmit} ref={formRef}>
+        <label className="ticket__options">
+          INQUIRY:
+          <select className="ticket__select" name="selected__type">
+            <option className="ticket__option" value="Work Permit">Work Permit</option>
+            <option className="ticket__option" value="Travel Document">Travel Document</option>
+            <option className="ticket__option" value="Financial Aid">Financial Aid</option>
+            <option className="ticket__option" value="Study Permit">Study Permit</option>
+            <option className="ticket__option" value="Other">Other</option>
+          </select>
+        </label>
         <label className="ticket__label">
           TITLE:
           <input type="text" name="title" className="ticket__input"></input>
@@ -72,18 +78,6 @@ const TicketPage = ({ URL }) => {
             className="ticket__submit"
           ></input>
         </div>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
       </form>
     </section>
   );

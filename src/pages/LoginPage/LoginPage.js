@@ -1,41 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import jwt_decode from "jwt-decode";
+
 
 const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
+  const [user, setUser] = useState({});
+
+
   const navigate = useNavigate();
-  const formRef = useRef();
-  console.log(isLoggedIn);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
 
-    const form = formRef.current;
+    useEffect(() => {
+    const handleCallbackResponse = (response) => {
+      // console.log("Encoded JWT ID token:" + response.credential);
+      const userObject = jwt_decode(response.credential);
+      console.log(userObject);
+      setUser(userObject);
+      document.getElementById("signInDiv").hidden = true;
+      navigate('/')
+    };
+    /* global google */
+    google.accounts.id.initialize({
+      client_id:
+        "1030792444601-2k1tp8pa2sk2ll65b90nmbhtrapspvab.apps.googleusercontent.com",
+      callback: handleCallbackResponse,
+    });
 
-    const username = form.username.value;
-    const password = form.password.value;
-
-    if (!username || !password) {
-      toast("Please fill in all fields");
-      return;
-    }
-
-    axios
-      .post(`${URL}${login}`, {
-        username,
-        password,
-      })
-      .then(({ data }) => {
-        console.log(data);
-        setIsLoggedIn(data);
-        navigate("/");
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
+    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+      theme: "outline",
+      size: "large",
+    });
+  }, [setUser]);
 
   return (
     <section className="login">
@@ -43,36 +41,17 @@ const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
         "No one is a stranger in this world, just a soul in search of a home." -
         Unknown
       </h2>
-
-      <form className="login__form" onSubmit={handleLogin} ref={formRef}>
-        <label>
-          username:
-          <input type="text" name="username"></input>
-        </label>
-        <label>
-          password:
-          <input type="password" name="password"></input>
-        </label>
-
-        <div className="login__btn-container">
-          <button className="login__btn-container__button">LOGIN</button>
+      <div id="signInDiv" className="login__google"></div>
+      {user && (
+        <div>
+          <img src={user.picture}></img>
+          <h3>{user.name}</h3>
         </div>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
-      </form>
+      )}
+
       <p>
-        Don't have an account? Sign Up{" "}
-        <Link to="/signup" className="login__link">
+        Don't have a google account? Sign Up{" "}
+        <Link to="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp" target="_blank" className="login__link">
           HERE
         </Link>
       </p>

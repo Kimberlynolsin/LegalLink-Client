@@ -1,9 +1,12 @@
 $mobile-min: 320px;
 $mobile-max: 767px;
 
-$primary: #8caa87;
-$secondary: #6f8565;
-$tertiary: #61876e;
+
+$primary: #a5243d;
+$secondary: #cee0dc;
+$tertiary: #b48291;
+$quad: #afaab9;
+$text: white;
 
 $box: 0 0 20px
   rgba(
@@ -11,4 +14,4 @@ $box: 0 0 20px
     $alpha: 20%,
   );
 
-$mobile-pad: 1.6rem;
+$mobile-pad: 0 1.6rem;

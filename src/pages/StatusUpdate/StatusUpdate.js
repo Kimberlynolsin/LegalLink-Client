@@ -5,12 +5,12 @@ import "react-sweet-progress/lib/style.css";
 import more from "../../assets/icons/more.png";
 import help from "../../assets/icons/help.png";
 
-const StatusUpdate = ({ cardDetails }) => {
+const StatusUpdate = ({ status }) => {
   const [expandStates, setExpandStates] = useState([]);
 
   useEffect(() => {
-    setExpandStates(Array(cardDetails.length).fill(false));
-  }, [cardDetails]);
+    setExpandStates(Array(status.length).fill(false));
+  }, [status]);
 
   const handleClick = (index) => {
     const newExpandStates = [...expandStates];
@@ -18,7 +18,7 @@ const StatusUpdate = ({ cardDetails }) => {
     setExpandStates(newExpandStates);
   };
 
-  const statusCard = cardDetails.map((element, index) => {
+  const statusCard = status.map((element, index) => {
     return (
       <div className="status__application" key={element.id}>
         <div className="status__title-info">
@@ -34,7 +34,7 @@ const StatusUpdate = ({ cardDetails }) => {
           <Progress
             theme={{
               active: {
-                color: "#61876E",
+                color: "#a5243d",
               },
             }}
             percent={element.percentage}
@@ -56,12 +56,12 @@ const StatusUpdate = ({ cardDetails }) => {
   return (
     <section className="status">
       <h2 className="status__title">STATUS UPDATE</h2>
-      <div className="status__box">
+      {/* <div className="status__box">
         <p className="status__statement">
           Here you will find further information regarding the status of your
           application.
         </p>
-      </div>
+      </div> */}
       <div className="status__options">
         {statusCard}
         <div className="status__disclaimer">

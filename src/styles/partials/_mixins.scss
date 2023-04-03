@@ -16,6 +16,14 @@
   border-radius: 5px;
   padding: 2rem;
   margin-bottom: 3rem;
-  background-color: white;
-  color: $secondary;
+  // background-color: $secondary;
+  background-color: $quad;
+  // color: $secondary;
+}
+
+@mixin mobile-height {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  height: 100vh;
 }

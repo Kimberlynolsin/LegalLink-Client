@@ -12,11 +12,25 @@
     text-decoration: none;
   }
 
+  p {
+    color: $primary;
+  }
+  hr{
+    height: .5px;
+  }
+  h2{
+    margin:4rem 0 2rem 0 ;
+  }
+
   body {
-    font-family: "Poppins";
+    // font-family: "Poppins";
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.6rem;
     margin: 0;
-    background: #8caa87;
-    color: white;
+    background: $primary;
+    color: $quad;
+    margin: $mobile-pad;
+    padding-top: 0;
+    @include mobile-height;
   }
 }

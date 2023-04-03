@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+import Nav from '../Navbar/Navbar'
+import logo from '../../assets/logo/ll-logo.png'
 
 function PageHeader() {
   return (
     <>
       <header className="header">
         <Link to="/">
-          <h1 className="header__title">LegalLink</h1>
+          <img src={logo} className="header__logo"></img>
         </Link>
+        <Nav/>
       </header>
     </>
   );
