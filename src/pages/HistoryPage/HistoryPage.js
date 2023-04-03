@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const HistoryPage = ({ URL }) => {
+const HistoryPage = ({ url }) => {
   const [tickets, setTickets] = useState(null);
   const [expanded, setExpanded] = useState(null);
 
@@ -12,14 +12,14 @@ const HistoryPage = ({ URL }) => {
   useEffect(() => {
     const getTickets = async () => {
       try {
-        const { data } = await axios.get(`${URL}/ticket`);
+        const { data } = await axios.get(`${url}/ticket`);
         setTickets(data);
       } catch (error) {
         console.log(error.message);
       }
     };
     getTickets();
-  }, [URL]);
+  }, [url]);
 
   const ticketArr =
     tickets &&
@@ -45,11 +45,6 @@ const HistoryPage = ({ URL }) => {
   return (
     <section className="history">
       <h2 className="history__title">TICKET HISTORY</h2>
-      <div className="history__container-statement">
-        <p className="history__statement">
-          View your past history and additional information.
-        </p>
-      </div>
       <div className="history__container">{ticketArr}</div>
     </section>
   );

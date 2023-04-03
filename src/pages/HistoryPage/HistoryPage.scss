@@ -1,10 +1,11 @@
 .history {
-  padding: $mobile-pad;
 
   &__wrapper {
     @include cards;
+    background-color: white;
     padding: 1rem;
     margin-bottom: 1rem;
+    // width: 30%;
 
     &:hover {
       background-color: white;
@@ -21,6 +22,7 @@
       margin: 0;
       font-weight: 400;
       font-size: 1.3rem;
+      color: $primary;
     }
 
     &__description {
@@ -50,7 +52,7 @@
   }
 
   &__timestamp {
-    color: $secondary;
+    color: darkgray;
     margin: 0;
     font-size: 1.3rem;
   }

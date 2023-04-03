@@ -28,7 +28,6 @@ function App() {
     getStatus();
   }, []);
 
-  console.log(status);
 
   if (!status) {
     return (
@@ -46,7 +45,7 @@ function App() {
         <Route path="/" element={<Homepage status={status} history={history} setHistory={setHistory} url={URL}/>} />
         <Route path="/status" element={<StatusUpdatePage status={status}/>} />
         <Route path="/ticket" element={<TicketPage url={URL}/>} />
-        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/history" element={<HistoryPage history={history} url={URL} />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
