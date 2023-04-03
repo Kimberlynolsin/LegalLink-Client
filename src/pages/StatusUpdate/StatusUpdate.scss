@@ -18,12 +18,17 @@
   &__options {
     // @include cards;
     border: none;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between
   }
   &__application {
     @include cards;
     background-color: white;
     padding: 1rem;
     margin-bottom: 2rem;
+    margin-right: 1rem;
+    width: 45%;
   }
 
   &__status {
@@ -70,5 +75,9 @@
 }
 
 .react-sweet-progress-symbol-absolute div {
+  color: white;
+}
+
+.react-sweet-progress-symbol{
   color: white;
 }

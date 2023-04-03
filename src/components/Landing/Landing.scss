@@ -1,5 +1,4 @@
 .landing {
-
   &__flexed {
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@
   }
   &__status {
     font-size: 1.3rem;
-    color: white;
+    color: $primary;
     margin: 0;
   }
 
@@ -36,6 +35,9 @@
     flex-direction: column;
     // justify-content: space-evenly;
     flex-grow: 1;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 1rem;
   }
 
   &__progress-work {
@@ -47,30 +49,33 @@
     }
   }
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
   }
 
   &__solution {
     display: flex;
     border-radius: 5px;
-    background-color: $quad;
-    height: 3rem;
+    background-color: white;
+    // height: 3rem;
     align-items: center;
+    width: 100%;
+    padding: 0.6rem;
+    justify-content: space-between;
+    margin: 1rem 0;
   }
   &__resolution {
-    width: 11rem;
-    padding: 2rem;
-    text-align: center;
     margin: 0;
   }
   &__statement {
     margin: 0;
   }
+  &__test {
+    display: flex;
+  }
 
   &__estimate {
-    //   @include cards;
     background-color: white;
     border-radius: 5px;
     padding: 2rem;
