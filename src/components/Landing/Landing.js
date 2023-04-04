@@ -33,7 +33,7 @@ const Landing = ({ status }) => {
               />
             </div>
             <div>
-              <hr></hr>
+              {/* <hr></hr> */}
             </div>
           </div>
         </>

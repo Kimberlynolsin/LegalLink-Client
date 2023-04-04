@@ -15,8 +15,9 @@
 
   &__box {
     display: flex;
+    // flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
 
     &__subtitle {
       margin: 0;
@@ -38,6 +39,11 @@
       border-radius: 5px;
       width: 17%;
       text-align: center;
+    }
+
+    &__type{
+      margin: 0 0 1rem 0;
+      font-size: 1.3rem;
     }
   }
 
