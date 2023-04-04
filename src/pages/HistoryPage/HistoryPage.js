@@ -27,7 +27,7 @@ const HistoryPage = ({ url }) => {
       return (
         <div className="history__wrapper" key={element.id}>
           <div className="history__box" onClick={() => moreInfo(element.id)}>
-            <h4 className="history__box__subtitle">{element.title}</h4>
+            <h4 className="history__box__subtitle">{element.type}</h4>
             <p className="history__timestamp">
               {new Date(element.timestamp).toLocaleDateString()}
             </p>
@@ -45,6 +45,16 @@ const HistoryPage = ({ url }) => {
   return (
     <section className="history">
       <h2 className="history__title">TICKET HISTORY</h2>
+      <form className="history__form">
+        <select className="history__select" name="history__type">
+          <option>Work Permit</option>
+          <option>Travel Document</option>
+          <option>Financial Aid</option>
+          <option>Study Permit</option>
+          <option>Other</option>
+        </select>
+      </form>
+      <hr></hr>
       <div className="history__container">{ticketArr}</div>
     </section>
   );

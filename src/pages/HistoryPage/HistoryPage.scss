@@ -40,6 +40,19 @@
       text-align: center;
     }
   }
+
+  &__select{
+    margin-top: 1rem;
+    border-radius: 5px;
+    @include inputStyle;
+    padding: 1rem 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
   &__statement {
     margin: 0;
   }
