@@ -3,11 +3,8 @@ import { useEffect, useState } from "react";
 
 const HistoryPage = ({ url }) => {
   const [tickets, setTickets] = useState(null);
-  const [expanded, setExpanded] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const moreInfo = (id) => {
-    setExpanded(expanded === id ? null : id);
-  };
 
   useEffect(() => {
     const getTickets = async () => {
@@ -26,18 +23,17 @@ const HistoryPage = ({ url }) => {
     tickets.map((element) => {
       return (
         <div className="history__wrapper" key={element.id}>
-          <div className="history__box" onClick={() => moreInfo(element.id)}>
+          <div className="history__box">
             <h4 className="history__box__subtitle">{element.type}</h4>
             <p className="history__timestamp">
               {new Date(element.timestamp).toLocaleDateString()}
             </p>
           </div>
-          {expanded === element.id && (
-            <>
-              <p className="history__box__description">{element.description}</p>
-              <p className="history__box__solved">solved</p>
-            </>
-          )}
+
+          <>
+            <p className="history__box__description">{element.description}</p>
+            {/* <p className="history__box__solved">solved</p> */}
+          </>
         </div>
       );
     });
