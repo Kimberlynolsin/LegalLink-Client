@@ -8,7 +8,7 @@ import "./styles/styles.scss";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 function App() {
   const URL = process.env.REACT_APP_BASE_URL;
 
@@ -45,6 +45,7 @@ function App() {
         <Route path="/ticket" element={<TicketPage url={URL}/>} />
         <Route path="/history" element={<HistoryPage history={history} url={URL} />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
