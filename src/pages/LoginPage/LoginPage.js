@@ -5,21 +5,30 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import jwt_decode from "jwt-decode";
 
-const LoginPage = ({
-  user,
-  setUser,
-}) => {
+const LoginPage = ({ user, setUser }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleCallbackResponse = (response) => {
+    const handleCallbackResponse = async (response) => {
       // console.log("Encoded JWT ID token:" + response.credential);
       const userObject = jwt_decode(response.credential);
       console.log(userObject);
       setUser(userObject);
       document.getElementById("signInDiv").hidden = true;
       navigate("/");
+
+      const accessToken = response.credential;
+      try {
+        const response = await fetch("http://localhost:8000/login", {
+          method: "GET",
+          headers: { Authorixaation: `Bearer ${accessToken}` },
+        });
+      } catch (error) {
+        console.log(error);
+      }
     };
+
+
     /* global google */
     google.accounts.id.initialize({
       client_id:
@@ -32,8 +41,6 @@ const LoginPage = ({
       size: "large",
     });
   }, [setUser]);
-
-  
 
   return (
     <section className="login">
