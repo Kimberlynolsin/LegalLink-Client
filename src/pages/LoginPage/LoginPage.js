@@ -5,23 +5,30 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import jwt_decode from "jwt-decode";
 
-
-const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
-  const [user, setUser] = useState({});
-
-
+const LoginPage = ({ user, setUser }) => {
   const navigate = useNavigate();
 
-
-    useEffect(() => {
-    const handleCallbackResponse = (response) => {
+  useEffect(() => {
+    const handleCallbackResponse = async (response) => {
       // console.log("Encoded JWT ID token:" + response.credential);
       const userObject = jwt_decode(response.credential);
       console.log(userObject);
       setUser(userObject);
       document.getElementById("signInDiv").hidden = true;
-      navigate('/')
+      navigate("/");
+
+      const accessToken = response.credential;
+      try {
+        const response = await fetch("http://localhost:8000/login", {
+          method: "GET",
+          headers: { Authorixaation: `Bearer ${accessToken}` },
+        });
+      } catch (error) {
+        console.log(error);
+      }
     };
+
+
     /* global google */
     google.accounts.id.initialize({
       client_id:
@@ -51,7 +58,11 @@ const LoginPage = ({ login, URL, isLoggedIn, setIsLoggedIn }) => {
 
       <p>
         Don't have a google account? Sign Up{" "}
-        <Link to="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp" target="_blank" className="login__link">
+        <Link
+          to="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp"
+          target="_blank"
+          className="login__link"
+        >
           HERE
         </Link>
       </p>
