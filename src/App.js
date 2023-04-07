@@ -8,12 +8,13 @@ import "./styles/styles.scss";
 import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ProfilePage from './pages/ProfilePage/ProfilePage'
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 function App() {
   const URL = process.env.REACT_APP_BASE_URL;
 
   const [status, setStatus] = useState(null);
-  const [history,setHistory] = useState(null)
+  const [history, setHistory] = useState(null);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const getStatus = async () => {
@@ -26,7 +27,6 @@ function App() {
     };
     getStatus();
   }, []);
-
 
   if (!status) {
     return (
@@ -41,11 +41,27 @@ function App() {
       <PageHeader />
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Homepage status={status} history={history} setHistory={setHistory} url={URL}/>} />
-        <Route path="/ticket" element={<TicketPage url={URL}/>} />
-        <Route path="/history" element={<HistoryPage history={history} url={URL} />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/"
+          element={
+            <Homepage
+              status={status}
+              history={history}
+              setHistory={setHistory}
+              url={URL}
+            />
+          }
+        />
+        <Route path="/ticket" element={<TicketPage url={URL} />} />
+        <Route
+          path="/history"
+          element={<HistoryPage history={history} url={URL} />}
+        />
+        <Route
+          path="/login"
+          element={<LoginPage user={user} setUser={setUser} />}
+        />
+        <Route path="/profile" element={<ProfilePage user={user}/>} />
       </Routes>
     </Router>
   );
