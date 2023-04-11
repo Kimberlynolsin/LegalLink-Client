@@ -9,34 +9,28 @@ const Landing = ({ status }) => {
     status &&
     status.map((element) => {
       return (
-        <>
-          <div key={element.id} className="landing__backdrop">
-            <div className="landing__container">
-              <div className="landing__progress-work" key={element.id}>
-                <h3 className="landing__progress-work__title">
-                  {element.title}
-                </h3>
-              </div>
-            </div>
-            <div className="landing__solution">
-              <p className="landing__status">Status: {element.status}</p>
-              <p className="landing__resolution">{element.resolution}</p>
-            </div>
-            <div className="landing__test">
-              <Progress
-                theme={{
-                  active: {
-                    color: "#afaab9",
-                  },
-                }}
-                percent={element.percentage}
-              />
-            </div>
-            <div>
-              {/* <hr></hr> */}
+        <div key={element.id} className="landing__backdrop">
+          <div className="landing__container">
+            <div className="landing__progress-work" key={element.id}>
+              <h3 className="landing__progress-work__title">{element.title}</h3>
             </div>
           </div>
-        </>
+          <div className="landing__solution">
+            <p className="landing__status">Status: {element.status}</p>
+            <p className="landing__resolution">{element.resolution}</p>
+          </div>
+          <div className="landing__test">
+            <Progress
+              theme={{
+                active: {
+                  color: "#afaab9",
+                },
+              }}
+              percent={element.percentage}
+            />
+          </div>
+          <div>{/* <hr></hr> */}</div>
+        </div>
       );
     });
 

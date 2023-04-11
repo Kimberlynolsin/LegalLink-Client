@@ -1,4 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  redirect,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Homepage from "./pages/Homepage/Homepage";
 import TicketPage from "./pages/Ticket/Ticket";
@@ -14,7 +21,8 @@ function App() {
 
   const [status, setStatus] = useState(null);
   const [history, setHistory] = useState(null);
-  const [user, setUser] = useState({});
+  const [auth, setAuth] = useState({isAuthenticated:false});
+  const [user, setUser] = useState({isAuthenticated:false});
 
   useEffect(() => {
     const getStatus = async () => {
@@ -35,7 +43,7 @@ function App() {
       </>
     );
   }
-
+console.log(user)
   return (
     <Router>
       <PageHeader />
@@ -59,9 +67,9 @@ function App() {
         />
         <Route
           path="/login"
-          element={<LoginPage user={user} setUser={setUser} />}
+          element={<LoginPage user={user} setUser={setUser} auth={auth} setAuth={setAuth}/>}
         />
-        <Route path="/profile" element={<ProfilePage user={user}/>} />
+        <Route path="/profile" element={<ProfilePage user={user} />} />
       </Routes>
     </Router>
   );
