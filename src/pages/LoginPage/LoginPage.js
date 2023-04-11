@@ -1,33 +1,24 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import jwt_decode from "jwt-decode";
 
-const LoginPage = ({ user, setUser }) => {
+const LoginPage = ({ user, setUser, auth, setAuth }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleCallbackResponse = async (response) => {
-      // console.log("Encoded JWT ID token:" + response.credential);
       const userObject = jwt_decode(response.credential);
-      console.log(userObject);
       setUser(userObject);
       document.getElementById("signInDiv").hidden = true;
       navigate("/");
 
       const accessToken = response.credential;
-      try {
-        const response = await fetch("http://localhost:8000/login", {
-          method: "GET",
-          headers: { Authorixaation: `Bearer ${accessToken}` },
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      localStorage.setItem("accessToken", accessToken); // Store the access token in local storage
+      setAuth({ isAuthenticated: true }); // Update authentication status to true
     };
-
 
     /* global google */
     google.accounts.id.initialize({
@@ -41,6 +32,18 @@ const LoginPage = ({ user, setUser }) => {
       size: "large",
     });
   }, [setUser]);
+
+  // Check for access token in local storage and update authentication status accordingly
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      setAuth({ isAuthenticated: true });
+    } else {
+      setAuth({ isAuthenticated: false });
+    }
+  }, [setAuth]);
+
+
 
   return (
     <section className="login">
