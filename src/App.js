@@ -31,7 +31,7 @@ function App() {
   if (!status) {
     return (
       <>
-        <p>Page is loading</p>
+        <h3 className="app__loading">PAGE IS LOADING</h3>
       </>
     );
   }

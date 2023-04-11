@@ -21,8 +21,9 @@ const LoginPage = ({ user, setUser }) => {
       try {
         const response = await fetch("http://localhost:8000/login", {
           method: "GET",
-          headers: { Authorixaation: `Bearer ${accessToken}` },
+          headers: { 'Authorization': `Bearer ${accessToken}` },
         });
+
       } catch (error) {
         console.log(error);
       }
